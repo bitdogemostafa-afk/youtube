@@ -2,8 +2,8 @@
   "meta": {
     "id": "2026-09-30-why-sky-blue",
     "title": "ليه السما زرقا؟",
-    "status": "voiceover",
-    "current_owner": "voiceover-artist",
+    "status": "mix",
+    "current_owner": "audio-mixer",
     "target_publish": "2026-10-13T19:00:00+03:00",
     "history": [
       {
@@ -60,6 +60,13 @@
         "by": "voiceover-artist",
         "at": "2026-09-30",
         "report": "10 مقاطع صوتية اتولدت بصوت voice-00. 5 مقاطع محتاجة قصر سكون + تسريع خفيف. الهوك والخاتمة الجلسة الجاية (حد 10 مقاطع)",
+        "user_approved": false
+      },
+      {
+        "stage": "mix",
+        "by": "audio-mixer",
+        "at": "2026-09-30",
+        "report": "12 مقطع صوتي جاهز + synced=true. خطة ميكس كاملة: موسيقى YTA 15% + 5 مؤثرات + معالجة المقاطع الطويلة",
         "user_approved": false
       }
     ]
@@ -220,8 +227,9 @@
   },
   "hook": {
     "text": "سؤال بسيط: لماذا السماء زرقاء؟ ضوء الشمس الذي يصل إلينا أبيض، والسماء فوق رؤوسنا زرقاء. هناك شيء غير منطقي هنا! والسبب واحد من أجمل قواعد الفيزياء، وسيفتح لك عينيك على أشياء أخرى: لماذا الغروب أحمر، ولماذا البحر أزرق، وكيف يصبح الغروب أزرق على كوكب آخر. تعال نسأل معاً: طب ليه السما زرقا؟",
-    "duration_sec": 25,
-    "by": "scriptwriter"
+    "duration_sec": 28.5,
+    "by": "scriptwriter",
+    "audio_file": "assets/voice/videos/why-sky-blue/hook.mp3"
   },
   "intro": {
     "logo": "assets/logo/logo-final-800.png",
@@ -424,6 +432,7 @@
     "voiceover": {
       "voice_id": "voice-00",
       "files": [
+        "assets/voice/videos/why-sky-blue/hook.mp3",
         "assets/voice/videos/why-sky-blue/scene-01.mp3",
         "assets/voice/videos/why-sky-blue/scene-02.mp3",
         "assets/voice/videos/why-sky-blue/scene-03.mp3",
@@ -433,22 +442,50 @@
         "assets/voice/videos/why-sky-blue/scene-07.mp3",
         "assets/voice/videos/why-sky-blue/scene-08.mp3",
         "assets/voice/videos/why-sky-blue/scene-09.mp3",
-        "assets/voice/videos/why-sky-blue/scene-10.mp3"
+        "assets/voice/videos/why-sky-blue/scene-10.mp3",
+        "assets/voice/videos/why-sky-blue/outro.mp3"
       ],
-      "synced": false,
-      "pending": [
-        "hook.mp3",
-        "outro.mp3"
-      ]
+      "synced": true
     },
     "music": {
-      "track": "",
+      "track": "Cinematic Ambient — يُختار من مكتبة يوتيوب",
+      "search_terms": "curious ambient cinematic instrumental",
       "source": "youtube_audio_library",
-      "url": "",
-      "volume": 0.15
+      "url": "https://studio.youtube.com → Audio Library",
+      "volume": 0.15,
+      "bpm_range": "90-110",
+      "vocal": "بدون كلمات",
+      "fade_in_sec": 2,
+      "fade_out_sec": 3
     },
-    "sfx": [],
-    "mixer_notes": "5 مقاطع أطول من مدة المشهد (2، 5، 6، 7، 9): قُصّ السكون الطرفي (0.3-0.5 ثانية) + تسريع خفيف 1.05x-1.15x عند المونتاج عشان تدخل في المدة المحددة. باقي المقاطع تدخل زي ما هي."
+    "sfx": [
+      {
+        "name": "whoosh",
+        "used_at": "transitions: fade/zoom/cut/swipe",
+        "level_db": -12
+      },
+      {
+        "name": "ding",
+        "used_at": "scene 2, 8 (تأكيد معلومة)",
+        "level_db": -12
+      },
+      {
+        "name": "riser",
+        "used_at": "scene 3, 9 (بناء تشويق)",
+        "level_db": -14
+      },
+      {
+        "name": "splash",
+        "used_at": "scene 7 (البحر)",
+        "level_db": -12
+      },
+      {
+        "name": "impact",
+        "used_at": "scene 5, 10 (لحظة الذروة)",
+        "level_db": -10
+      }
+    ],
+    "mixer_notes": "خطة الميكس النهائية:\n1. التعليق الصوتي = المسار الرئيسي (-3dB فوق الموسيقى).\n2. الموسيقى (YouTube Audio Library) مستوى 15%، fade-in أول ثانيتين، fade-out آخر 3 ثوانٍ.\n3. المؤثرات عند الانتقالات -12dB، ولحظات الذروة -10dB.\n4. صوت الانترو (intro-sample.mp3) يعزف فوق الموسيقى في أول 5 ثوانٍ.\n5. المقاطع 2، 5، 6، 7، 9: قُصّ السكون الطرفي + تسريع 1.05x-1.15x عشان تدخل في مدة المشهد.\n6. الهوك 28.7 ثانية → يُقص لـ 25 ثانية (إزالة السكون الطرفي)."
   },
   "seo": {
     "primary_keyword": "ليه السما زرقا",
