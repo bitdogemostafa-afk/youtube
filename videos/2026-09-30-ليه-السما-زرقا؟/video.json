@@ -2,9 +2,9 @@
   "meta": {
     "id": "2026-09-30-why-sky-blue",
     "title": "ليه السما زرقا؟",
-    "status": "mix",
-    "current_owner": "audio-mixer",
-    "target_publish": "2026-10-13T19:00:00+03:00",
+    "status": "ready",
+    "current_owner": "publisher",
+    "target_publish": "2026-10-06T19:00:00+03:00",
     "history": [
       {
         "stage": "idea",
@@ -67,6 +67,13 @@
         "by": "audio-mixer",
         "at": "2026-09-30",
         "report": "12 مقطع صوتي جاهز + synced=true. خطة ميكس كاملة: موسيقى YTA 15% + 5 مؤثرات + معالجة المقاطع الطويلة",
+        "user_approved": false
+      },
+      {
+        "stage": "publish",
+        "by": "publisher",
+        "at": "2026-10-01",
+        "report": "مجدول الثلاثاء 2026-10-06 7:00 مساءً +03:00 (5 أيام production). Checklist من 11 بند جاهز",
         "user_approved": false
       }
     ]
@@ -550,8 +557,55 @@
     "by": "thumbnail-designer"
   },
   "publish": {
-    "scheduled_at": "",
-    "checklist": [],
+    "scheduled_at": "2026-10-06T19:00:00+03:00",
+    "slot": "الثلاثاء 7:00 مساءً بتوقيت السعودية",
+    "days_until_publish": 5,
+    "checklist": [
+      {
+        "item": "تحميل المرئيات من pexels/pixabay/unsplash +Wikimedia (9 مشاهد)",
+        "done": false
+      },
+      {
+        "item": "المونتاج: تركيب 10 مشاهد بالانتقالات المحددة",
+        "done": false
+      },
+      {
+        "item": "تركيب التعليق الصوتي (12 مقطع) + قص وتسريع المقاطع الطويلة",
+        "done": false
+      },
+      {
+        "item": "الموسيقى من YouTube Audio Library + المؤثرات + الميكس",
+        "done": false
+      },
+      {
+        "item": "الانترو: لوجو القناة + intro-sample.mp3 (5 ثوانٍ)",
+        "done": false
+      },
+      {
+        "item": "الثمبنيل النهائي 1280×720 (فكرة 1)",
+        "done": false
+      },
+      {
+        "item": "العنوان + الوصف + 12 تاج + الهاشتاجات",
+        "done": false
+      },
+      {
+        "item": "End screen + Cards",
+        "done": false
+      },
+      {
+        "item": "السبتايتل (عربي)",
+        "done": false
+      },
+      {
+        "item": "تعليق مثبّت: «لماذا السحب بيضاء والسماء زرقاء؟»",
+        "done": false
+      },
+      {
+        "item": "موافقة المستخدم النهائية",
+        "done": false
+      }
+    ],
     "by": "publisher"
   },
   "review": {
