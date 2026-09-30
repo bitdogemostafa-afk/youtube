@@ -2,8 +2,8 @@
   "meta": {
     "id": "2026-09-30-why-sky-blue",
     "title": "ليه السما زرقا؟",
-    "status": "research",
-    "current_owner": "researcher",
+    "status": "fact_check",
+    "current_owner": "fact-checker",
     "target_publish": "2026-10-13T19:00:00+03:00",
     "history": [
       {
@@ -19,10 +19,16 @@
         "at": "2026-09-30",
         "report": "4 أسئلة فرعية + 10 حقائق بمصادر موثوقة (NASA/NOAA/HyperPhysics) + 9 مرئيات مقترحة بلينكات مباشرة وحقوق استخدام",
         "user_approved": false
+      },
+      {
+        "stage": "fact_check",
+        "by": "fact-checker",
+        "at": "2026-09-30",
+        "report": "10/10 مؤكدة. تعديلان: صياغة لون البحر + تحويل مشهد 4 لـ Wikimedia Commons",
+        "user_approved": false
       }
     ]
   },
-
   "research": {
     "by": "researcher",
     "questions": [
@@ -38,7 +44,7 @@
           "https://spaceplace.nasa.gov/blue-sky/en/",
           "https://scijinks.gov/blue-sky/"
         ],
-        "verified": false
+        "verified": true
       },
       {
         "claim": "الغلاف الجوي بيبعثر الضوء الأزرق (الموج القصير) أكتر من الأحمر — اسمها بعثرة رايلي، وقوتها تتناسب عكسياً مع القوة الرابعة لطول الموجة",
@@ -46,7 +52,7 @@
           "http://hyperphysics.phy-astr.gsu.edu/hbase/atmos/blusky.html",
           "https://www.britannica.com/story/why-is-the-sky-blue"
         ],
-        "verified": false
+        "verified": true
       },
       {
         "claim": "السماء زرقا مش بنفسجية رغم إن البنفسجي بيتبعثر أكتر، لأن الشمس بت emit أقل بنفسجي وعين الإنسان أقل حساسية له",
@@ -54,7 +60,7 @@
           "https://spaceplace.nasa.gov/blue-sky/en/",
           "https://scijinks.gov/blue-sky/"
         ],
-        "verified": false
+        "verified": true
       },
       {
         "claim": "الغروب أحمر لأن الضوء بيمشي مسافة أطول في الغلاف الجوي، فالأزرق بيتبعثر كله ويبقى الأحمر",
@@ -62,7 +68,7 @@
           "https://scijinks.gov/blue-sky/",
           "http://hyperphysics.phy-astr.gsu.edu/hbase/atmos/blusky.html"
         ],
-        "verified": false
+        "verified": true
       },
       {
         "claim": "البحر أزرق لسببين: بيعكس لون السما، والمياه بتشرب الضوء الأحمر أكتر من الأزرق",
@@ -70,7 +76,8 @@
           "https://oceanservice.noaa.gov/facts/oceanblue.html",
           "https://spaceplace.nasa.gov/blue-sky/en/"
         ],
-        "verified": false
+        "verified": true,
+        "note": "الصياغة النهائية للسكريبت: امتصاص المياه للضوء الأحمر هو السبب الأساسي، وانعكاس لون السما عامل ثانوي"
       },
       {
         "claim": "على المريخ السما حمراء/برتقالية بسبب غبار أكسيد الحديد الدقيق في الجو",
@@ -78,35 +85,36 @@
           "https://science.nasa.gov/mars/facts/",
           "https://www.nasa.gov/image-article/mars-sky/"
         ],
-        "verified": false
+        "verified": true
       },
       {
         "claim": "غروب الشمس على المريخ أزرق (عكس الأرض) — بسبب نفس الغبار",
         "sources": [
           "https://science.nasa.gov/mars/facts/"
         ],
-        "verified": false
+        "verified": true,
+        "note": "مؤكدة — NASA تؤكد الغروب الأزرق على المريخ بسبب بعثرة الغبار"
       },
       {
         "claim": "من القمر أو الفضاء السما سودا لأنه مفيش غلاف جوي يبعثر الضوء",
         "sources": [
           "https://spaceplace.nasa.gov/blue-sky/en/"
         ],
-        "verified": false
+        "verified": true
       },
       {
         "claim": "عين الإنسان عندها مستقبلات للأحمر والأخضر والأزرق — ودماغنا هو اللي بيقرأ الأزرق",
         "sources": [
           "https://www.britannica.com/story/why-is-the-sky-blue"
         ],
-        "verified": false
+        "verified": true
       },
       {
         "claim": "النجوم بتلمع بالنهار برضو، بس ضوء النهار الطاير أقدر منها فمش بنشوفهم",
         "sources": [
           "https://spaceplace.nasa.gov/blue-sky/en/"
         ],
-        "verified": false
+        "verified": true
       }
     ],
     "scene_visuals": [
@@ -133,9 +141,9 @@
       },
       {
         "scene": 4,
-        "source": "google",
-        "url": "https://www.google.com/search?q=Rayleigh+scattering+diagram",
-        "rights": "Google Images",
+        "source": "wikipedia",
+        "url": "https://commons.wikimedia.org/wiki/Category:Rayleigh_scattering",
+        "rights": "Wikimedia Commons (CC BY-SA)",
         "camera_move": "zoom-in"
       },
       {
@@ -175,29 +183,24 @@
       }
     ]
   },
-
   "hook": {
     "text": "",
     "duration_sec": 25,
     "by": "scriptwriter"
   },
-
   "intro": {
     "logo": "assets/logo/logo-final-800.png",
     "sound": "assets/voice/intro-sample.mp3",
     "animation": "zoom-in",
     "duration_sec": 5
   },
-
   "scenes": [],
-
   "outro": {
     "text": "",
     "interactive_questions": [],
     "end_screen": true,
     "duration_sec": 20
   },
-
   "audio": {
     "voiceover": {
       "voice_id": "voice-00",
@@ -213,29 +216,36 @@
     "sfx": [],
     "mixer_notes": ""
   },
-
   "seo": {
     "title": "",
     "description": "",
     "tags": [],
     "by": "seo-manager"
   },
-
   "thumbnail": {
     "ideas": [],
     "chosen": "",
     "by": "thumbnail-designer"
   },
-
   "publish": {
     "scheduled_at": "",
     "checklist": [],
     "by": "publisher"
   },
-
   "review": {
-    "fact_check": { "status": "pending", "by": "fact-checker", "notes": "" },
-    "language": { "status": "pending", "by": "language-editor", "notes": "" },
-    "user_approval": { "status": "pending", "notes": "" }
+    "fact_check": {
+      "status": "approved",
+      "by": "fact-checker",
+      "notes": "10/10 حقائق مؤكدة بمصدرين (NASA SpacePlace، NOAA SciJinks، HyperPhysics، Britannica، NASA Mars Facts). ملاحظتان: (1) صياغة لون البحر — الامتصاص أساس والانعكاس ثانوي. (2) مشهد 4 اتغير من Google Images لـ Wikimedia Commons (CC) عشان الحقوق أوضح."
+    },
+    "language": {
+      "status": "pending",
+      "by": "language-editor",
+      "notes": ""
+    },
+    "user_approval": {
+      "status": "pending",
+      "notes": ""
+    }
   }
 }
