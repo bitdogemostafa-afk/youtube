@@ -1,0 +1,241 @@
+{
+  "meta": {
+    "id": "2026-09-30-why-sky-blue",
+    "title": "ليه السما زرقا؟",
+    "status": "research",
+    "current_owner": "researcher",
+    "target_publish": "2026-10-13T19:00:00+03:00",
+    "history": [
+      {
+        "stage": "idea",
+        "by": "researcher",
+        "at": "2026-09-30",
+        "report": "12 فكرة مقيّمة — «ليه السما زرقا؟» الأعلى (39/40): فضول عالمي + مرئيات خلابة + مصادر قوية + ربطة خليجية (سماء الصحراء وقت الغروب)",
+        "user_approved": true
+      },
+      {
+        "stage": "research",
+        "by": "researcher",
+        "at": "2026-09-30",
+        "report": "4 أسئلة فرعية + 10 حقائق بمصادر موثوقة (NASA/NOAA/HyperPhysics) + 9 مرئيات مقترحة بلينكات مباشرة وحقوق استخدام",
+        "user_approved": false
+      }
+    ]
+  },
+
+  "research": {
+    "by": "researcher",
+    "questions": [
+      "الضوء أبيض… طب ليه السما زرقا؟",
+      "ليه الغروب أحمر؟",
+      "ليه البحر أزرق؟",
+      "السما زرقا على كل الكواكب؟ (المريخ)"
+    ],
+    "facts": [
+      {
+        "claim": "ضوء الشمس أبيض لأنه مكوّن من كل ألوان قوس قزح (380–750 نانومتر)",
+        "sources": [
+          "https://spaceplace.nasa.gov/blue-sky/en/",
+          "https://scijinks.gov/blue-sky/"
+        ],
+        "verified": false
+      },
+      {
+        "claim": "الغلاف الجوي بيبعثر الضوء الأزرق (الموج القصير) أكتر من الأحمر — اسمها بعثرة رايلي، وقوتها تتناسب عكسياً مع القوة الرابعة لطول الموجة",
+        "sources": [
+          "http://hyperphysics.phy-astr.gsu.edu/hbase/atmos/blusky.html",
+          "https://www.britannica.com/story/why-is-the-sky-blue"
+        ],
+        "verified": false
+      },
+      {
+        "claim": "السماء زرقا مش بنفسجية رغم إن البنفسجي بيتبعثر أكتر، لأن الشمس بت emit أقل بنفسجي وعين الإنسان أقل حساسية له",
+        "sources": [
+          "https://spaceplace.nasa.gov/blue-sky/en/",
+          "https://scijinks.gov/blue-sky/"
+        ],
+        "verified": false
+      },
+      {
+        "claim": "الغروب أحمر لأن الضوء بيمشي مسافة أطول في الغلاف الجوي، فالأزرق بيتبعثر كله ويبقى الأحمر",
+        "sources": [
+          "https://scijinks.gov/blue-sky/",
+          "http://hyperphysics.phy-astr.gsu.edu/hbase/atmos/blusky.html"
+        ],
+        "verified": false
+      },
+      {
+        "claim": "البحر أزرق لسببين: بيعكس لون السما، والمياه بتشرب الضوء الأحمر أكتر من الأزرق",
+        "sources": [
+          "https://oceanservice.noaa.gov/facts/oceanblue.html",
+          "https://spaceplace.nasa.gov/blue-sky/en/"
+        ],
+        "verified": false
+      },
+      {
+        "claim": "على المريخ السما حمراء/برتقالية بسبب غبار أكسيد الحديد الدقيق في الجو",
+        "sources": [
+          "https://science.nasa.gov/mars/facts/",
+          "https://www.nasa.gov/image-article/mars-sky/"
+        ],
+        "verified": false
+      },
+      {
+        "claim": "غروب الشمس على المريخ أزرق (عكس الأرض) — بسبب نفس الغبار",
+        "sources": [
+          "https://science.nasa.gov/mars/facts/"
+        ],
+        "verified": false
+      },
+      {
+        "claim": "من القمر أو الفضاء السما سودا لأنه مفيش غلاف جوي يبعثر الضوء",
+        "sources": [
+          "https://spaceplace.nasa.gov/blue-sky/en/"
+        ],
+        "verified": false
+      },
+      {
+        "claim": "عين الإنسان عندها مستقبلات للأحمر والأخضر والأزرق — ودماغنا هو اللي بيقرأ الأزرق",
+        "sources": [
+          "https://www.britannica.com/story/why-is-the-sky-blue"
+        ],
+        "verified": false
+      },
+      {
+        "claim": "النجوم بتلمع بالنهار برضو، بس ضوء النهار الطاير أقدر منها فمش بنشوفهم",
+        "sources": [
+          "https://spaceplace.nasa.gov/blue-sky/en/"
+        ],
+        "verified": false
+      }
+    ],
+    "scene_visuals": [
+      {
+        "scene": 1,
+        "source": "pexels",
+        "url": "https://www.pexels.com/search/blue%20sky%20clouds/",
+        "rights": "Pexels License",
+        "camera_move": "zoom-in"
+      },
+      {
+        "scene": 2,
+        "source": "pixabay",
+        "url": "https://pixabay.com/videos/search/light%20prism%20spectrum/",
+        "rights": "Pixabay License",
+        "camera_move": "zoom-in"
+      },
+      {
+        "scene": 3,
+        "source": "unsplash",
+        "url": "https://unsplash.com/s/photos/earth-from-space",
+        "rights": "Unsplash License",
+        "camera_move": "zoom-out"
+      },
+      {
+        "scene": 4,
+        "source": "google",
+        "url": "https://www.google.com/search?q=Rayleigh+scattering+diagram",
+        "rights": "Google Images",
+        "camera_move": "zoom-in"
+      },
+      {
+        "scene": 5,
+        "source": "pexels",
+        "url": "https://www.pexels.com/search/desert%20sunset/",
+        "rights": "Pexels License",
+        "camera_move": "pan-right"
+      },
+      {
+        "scene": 6,
+        "source": "unsplash",
+        "url": "https://unsplash.com/s/photos/blue-ocean-aerial",
+        "rights": "Unsplash License",
+        "camera_move": "zoom-in"
+      },
+      {
+        "scene": 7,
+        "source": "pixabay",
+        "url": "https://pixabay.com/videos/search/mars%20planet%20surface/",
+        "rights": "Pixabay License",
+        "camera_move": "zoom-in"
+      },
+      {
+        "scene": 8,
+        "source": "pexels",
+        "url": "https://www.pexels.com/search/astronaut%20in%20space/",
+        "rights": "Pexels License",
+        "camera_move": "zoom-out"
+      },
+      {
+        "scene": 9,
+        "source": "unsplash",
+        "url": "https://unsplash.com/s/photos/starry-night-sky",
+        "rights": "Unsplash License",
+        "camera_move": "tilt-up"
+      }
+    ]
+  },
+
+  "hook": {
+    "text": "",
+    "duration_sec": 25,
+    "by": "scriptwriter"
+  },
+
+  "intro": {
+    "logo": "assets/logo/logo-final-800.png",
+    "sound": "assets/voice/intro-sample.mp3",
+    "animation": "zoom-in",
+    "duration_sec": 5
+  },
+
+  "scenes": [],
+
+  "outro": {
+    "text": "",
+    "interactive_questions": [],
+    "end_screen": true,
+    "duration_sec": 20
+  },
+
+  "audio": {
+    "voiceover": {
+      "voice_id": "voice-00",
+      "files": [],
+      "synced": false
+    },
+    "music": {
+      "track": "",
+      "source": "youtube_audio_library",
+      "url": "",
+      "volume": 0.15
+    },
+    "sfx": [],
+    "mixer_notes": ""
+  },
+
+  "seo": {
+    "title": "",
+    "description": "",
+    "tags": [],
+    "by": "seo-manager"
+  },
+
+  "thumbnail": {
+    "ideas": [],
+    "chosen": "",
+    "by": "thumbnail-designer"
+  },
+
+  "publish": {
+    "scheduled_at": "",
+    "checklist": [],
+    "by": "publisher"
+  },
+
+  "review": {
+    "fact_check": { "status": "pending", "by": "fact-checker", "notes": "" },
+    "language": { "status": "pending", "by": "language-editor", "notes": "" },
+    "user_approval": { "status": "pending", "notes": "" }
+  }
+}
