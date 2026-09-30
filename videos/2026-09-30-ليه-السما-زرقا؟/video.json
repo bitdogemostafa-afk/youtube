@@ -2,8 +2,8 @@
   "meta": {
     "id": "2026-09-30-why-sky-blue",
     "title": "ليه السما زرقا؟",
-    "status": "fact_check",
-    "current_owner": "fact-checker",
+    "status": "script",
+    "current_owner": "scriptwriter",
     "target_publish": "2026-10-13T19:00:00+03:00",
     "history": [
       {
@@ -25,6 +25,13 @@
         "by": "fact-checker",
         "at": "2026-09-30",
         "report": "10/10 مؤكدة. تعديلان: صياغة لون البحر + تحويل مشهد 4 لـ Wikimedia Commons",
+        "user_approved": false
+      },
+      {
+        "stage": "script",
+        "by": "scriptwriter",
+        "at": "2026-09-30",
+        "report": "هوك 25 ثانية + 10 مشاهد (كل مشهد ≤ 10 ثوانٍ) + خاتمة بسؤالين تفاعليين. المدة الكلية ~2:20",
         "user_approved": false
       }
     ]
@@ -184,7 +191,7 @@
     ]
   },
   "hook": {
-    "text": "",
+    "text": "سؤال بسيط: ليه السما زرقا؟ ضوء الشمس اللي بيوصلنا أبيض، والسما اللي فوق راسنا زرقا. فيه حاجة مش منطقية هنا... والسبب وراها واحد من أجمل قواعد الفيزياء. وهيافتحلك عيونك على حاجات تانية: ليه الغروب أحمر، وليه البحر أزرق، وإزاي على كوكب تاني الغروب بقى أزرق بدل الأحمر. اسأل معايا: طب ليه السما زرقا؟",
     "duration_sec": 25,
     "by": "scriptwriter"
   },
@@ -194,10 +201,184 @@
     "animation": "zoom-in",
     "duration_sec": 5
   },
-  "scenes": [],
+  "scenes": [
+    {
+      "id": 1,
+      "section": "اللغز",
+      "narration": "ضوء الشمس بيوصلنا أبيض. بس الأبيض ده في الحقيقة مكوّن من سبعة ألوان، كل لون له موجته المختلفة.",
+      "duration_sec": 9,
+      "visual": {
+        "type": "stock",
+        "source": "pexels",
+        "url": "https://www.pexels.com/search/blue%20sky%20clouds/",
+        "local_file": "",
+        "rights": "Pexels License",
+        "camera_move": "zoom-in"
+      },
+      "transition_in": "fade",
+      "sfx": "whoosh",
+      "music_cue": "intro"
+    },
+    {
+      "id": 2,
+      "section": "اللغز",
+      "narration": "من الأحمر للبنفسجي. الأحمر موجته طويلة، والبنفسجي موجته قصيرة. والفرق ده هو اللي هيحدد كل حاجة بعد كده.",
+      "duration_sec": 8,
+      "visual": {
+        "type": "stock",
+        "source": "pixabay",
+        "url": "https://pixabay.com/videos/search/light%20prism%20spectrum/",
+        "local_file": "",
+        "rights": "Pixabay License",
+        "camera_move": "zoom-in"
+      },
+      "transition_in": "cut",
+      "sfx": "ding",
+      "music_cue": "build-up"
+    },
+    {
+      "id": 3,
+      "section": "اللغز",
+      "narration": "بس الضوء ما بيوصلش للأرض على طول. لازم يعدّي من غلافنا الجوي: طبقة رقيقة من الغازات والجزيئات.",
+      "duration_sec": 9,
+      "visual": {
+        "type": "stock",
+        "source": "unsplash",
+        "url": "https://unsplash.com/s/photos/earth-from-space",
+        "local_file": "",
+        "rights": "Unsplash License",
+        "camera_move": "zoom-out"
+      },
+      "transition_in": "zoom",
+      "sfx": "riser",
+      "music_cue": "build-up"
+    },
+    {
+      "id": 4,
+      "section": "السبب",
+      "narration": "وهنا بيحصل السحر. الجزيئات دي بتصادم الضوء وتشتته في كل الاتجاهات. والعلم سمّاها «البعثرة».",
+      "duration_sec": 10,
+      "visual": {
+        "type": "image",
+        "source": "wikipedia",
+        "url": "https://commons.wikimedia.org/wiki/Category:Rayleigh_scattering",
+        "local_file": "",
+        "rights": "Wikimedia Commons (CC BY-SA)",
+        "camera_move": "zoom-in"
+      },
+      "transition_in": "fade",
+      "sfx": "whoosh",
+      "music_cue": "mid"
+    },
+    {
+      "id": 5,
+      "section": "السبب",
+      "narration": "والقاعدة: كل ما كانت الموجة أقصر، كل ما اتبعثرت أكتر. الأزرق موجته قصيرة، فبيتشتت في السما كلها. وعلشان كده نشوفها زرقا!",
+      "duration_sec": 10,
+      "visual": {
+        "type": "stock",
+        "source": "pixabay",
+        "url": "https://pixabay.com/videos/search/blue%20sky%20sun/",
+        "local_file": "",
+        "rights": "Pixabay License",
+        "camera_move": "zoom-in"
+      },
+      "transition_in": "swipe",
+      "sfx": "impact",
+      "music_cue": "mid"
+    },
+    {
+      "id": 6,
+      "section": "الغروب",
+      "narration": "طب ليه الغروب أحمر؟ وقت الغروب، الضوء بيمشي مسافة أطول في الغلاف الجوي. والأزرق بيتبعثر كله، فالباقي اللي يوصل لعيننا هو الأحمر. وأجمل غروب بتشوفه هو غروب الصحراء.",
+      "duration_sec": 10,
+      "visual": {
+        "type": "stock",
+        "source": "pexels",
+        "url": "https://www.pexels.com/search/desert%20sunset/",
+        "local_file": "",
+        "rights": "Pexels License",
+        "camera_move": "pan-right"
+      },
+      "transition_in": "cut",
+      "sfx": "whoosh",
+      "music_cue": "mid"
+    },
+    {
+      "id": 7,
+      "section": "الغروب",
+      "narration": "وليه البحر أزرق؟ عشان المياه بتشغّل الضوء الأحمر جواها أكتر من الأزرق. واللي بيتردد ليّا هو الأزرق. وطبعاً كمان بيعكس لون السما.",
+      "duration_sec": 10,
+      "visual": {
+        "type": "stock",
+        "source": "unsplash",
+        "url": "https://unsplash.com/s/photos/blue-ocean-aerial",
+        "local_file": "",
+        "rights": "Unsplash License",
+        "camera_move": "zoom-in"
+      },
+      "transition_in": "fade",
+      "sfx": "splash",
+      "music_cue": "mid"
+    },
+    {
+      "id": 8,
+      "section": "الفضاء",
+      "narration": "وعلى المريخ؟ الغبار المحمّل بأكسيد الحديد بيشتت الضوء بشكل مختلف تماماً. فالسما هناك حمراء بدل الزرقا.",
+      "duration_sec": 9,
+      "visual": {
+        "type": "stock",
+        "source": "pixabay",
+        "url": "https://pixabay.com/videos/search/mars%20planet%20surface/",
+        "local_file": "",
+        "rights": "Pixabay License",
+        "camera_move": "zoom-in"
+      },
+      "transition_in": "zoom",
+      "sfx": "ding",
+      "music_cue": "climax"
+    },
+    {
+      "id": 9,
+      "section": "الفضاء",
+      "narration": "ومن القمر، من غير غلاف جوي يشتت الضوء، السما سودا والنجوم بتلمع واقفة. مكان مش شبه مكان.",
+      "duration_sec": 9,
+      "visual": {
+        "type": "stock",
+        "source": "unsplash",
+        "url": "https://unsplash.com/s/photos/starry-night-sky",
+        "local_file": "",
+        "rights": "Unsplash License",
+        "camera_move": "tilt-up"
+      },
+      "transition_in": "fade",
+      "sfx": "riser",
+      "music_cue": "climax"
+    },
+    {
+      "id": 10,
+      "section": "الفضاء",
+      "narration": "وأغرب حاجة: غروب الشمس على المريخ أزرق! عكس الأرض بالظبط. كل حاجة حواليك لها سبب. طب ليه؟",
+      "duration_sec": 10,
+      "visual": {
+        "type": "stock",
+        "source": "pixabay",
+        "url": "https://pixabay.com/videos/search/mars%20sunset/",
+        "local_file": "",
+        "rights": "Pixabay License",
+        "camera_move": "zoom-in"
+      },
+      "transition_in": "fade",
+      "sfx": "impact",
+      "music_cue": "outro"
+    }
+  ],
   "outro": {
-    "text": "",
-    "interactive_questions": [],
+    "text": "لو عجبك الفيديو، اشترك في «طب ليه؟» وفعّل الجرس، وخلي فضولك ياخدك لأبعد من كده.",
+    "interactive_questions": [
+      "ليه الغيوم بيضا لو السما زرقا؟",
+      "إيه رأيك: ليه غروب الشمس على المريخ أزرق؟"
+    ],
     "end_screen": true,
     "duration_sec": 20
   },
