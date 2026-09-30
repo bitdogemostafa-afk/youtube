@@ -2,8 +2,8 @@
   "meta": {
     "id": "2026-09-30-why-sky-blue",
     "title": "ليه السما زرقا؟",
-    "status": "thumbnail",
-    "current_owner": "thumbnail-designer",
+    "status": "voiceover",
+    "current_owner": "voiceover-artist",
     "target_publish": "2026-10-13T19:00:00+03:00",
     "history": [
       {
@@ -53,6 +53,13 @@
         "by": "thumbnail-designer",
         "at": "2026-09-30",
         "report": "3 أفكار ثمبنيل بألوان القناة — المختار: وجه معبّر + نص «ليه زرقا؟!»",
+        "user_approved": false
+      },
+      {
+        "stage": "voiceover",
+        "by": "voiceover-artist",
+        "at": "2026-09-30",
+        "report": "10 مقاطع صوتية اتولدت بصوت voice-00. 5 مقاطع محتاجة قصر سكون + تسريع خفيف. الهوك والخاتمة الجلسة الجاية (حد 10 مقاطع)",
         "user_approved": false
       }
     ]
@@ -238,7 +245,8 @@
       },
       "transition_in": "fade",
       "sfx": "whoosh",
-      "music_cue": "intro"
+      "music_cue": "intro",
+      "audio_actual_sec": 8.7
     },
     {
       "id": 2,
@@ -255,7 +263,8 @@
       },
       "transition_in": "cut",
       "sfx": "ding",
-      "music_cue": "build-up"
+      "music_cue": "build-up",
+      "audio_actual_sec": 11.2
     },
     {
       "id": 3,
@@ -272,7 +281,8 @@
       },
       "transition_in": "zoom",
       "sfx": "riser",
-      "music_cue": "build-up"
+      "music_cue": "build-up",
+      "audio_actual_sec": 9.3
     },
     {
       "id": 4,
@@ -289,7 +299,8 @@
       },
       "transition_in": "fade",
       "sfx": "whoosh",
-      "music_cue": "mid"
+      "music_cue": "mid",
+      "audio_actual_sec": 9.3
     },
     {
       "id": 5,
@@ -306,7 +317,8 @@
       },
       "transition_in": "swipe",
       "sfx": "impact",
-      "music_cue": "mid"
+      "music_cue": "mid",
+      "audio_actual_sec": 10.7
     },
     {
       "id": 6,
@@ -323,7 +335,8 @@
       },
       "transition_in": "cut",
       "sfx": "whoosh",
-      "music_cue": "mid"
+      "music_cue": "mid",
+      "audio_actual_sec": 11.9
     },
     {
       "id": 7,
@@ -340,7 +353,8 @@
       },
       "transition_in": "fade",
       "sfx": "splash",
-      "music_cue": "mid"
+      "music_cue": "mid",
+      "audio_actual_sec": 12.1
     },
     {
       "id": 8,
@@ -357,7 +371,8 @@
       },
       "transition_in": "zoom",
       "sfx": "ding",
-      "music_cue": "climax"
+      "music_cue": "climax",
+      "audio_actual_sec": 10.2
     },
     {
       "id": 9,
@@ -374,7 +389,8 @@
       },
       "transition_in": "fade",
       "sfx": "riser",
-      "music_cue": "climax"
+      "music_cue": "climax",
+      "audio_actual_sec": 10.4
     },
     {
       "id": 10,
@@ -391,7 +407,8 @@
       },
       "transition_in": "fade",
       "sfx": "impact",
-      "music_cue": "outro"
+      "music_cue": "outro",
+      "audio_actual_sec": 9.6
     }
   ],
   "outro": {
@@ -406,8 +423,23 @@
   "audio": {
     "voiceover": {
       "voice_id": "voice-00",
-      "files": [],
-      "synced": false
+      "files": [
+        "assets/voice/videos/why-sky-blue/scene-01.mp3",
+        "assets/voice/videos/why-sky-blue/scene-02.mp3",
+        "assets/voice/videos/why-sky-blue/scene-03.mp3",
+        "assets/voice/videos/why-sky-blue/scene-04.mp3",
+        "assets/voice/videos/why-sky-blue/scene-05.mp3",
+        "assets/voice/videos/why-sky-blue/scene-06.mp3",
+        "assets/voice/videos/why-sky-blue/scene-07.mp3",
+        "assets/voice/videos/why-sky-blue/scene-08.mp3",
+        "assets/voice/videos/why-sky-blue/scene-09.mp3",
+        "assets/voice/videos/why-sky-blue/scene-10.mp3"
+      ],
+      "synced": false,
+      "pending": [
+        "hook.mp3",
+        "outro.mp3"
+      ]
     },
     "music": {
       "track": "",
@@ -416,7 +448,7 @@
       "volume": 0.15
     },
     "sfx": [],
-    "mixer_notes": ""
+    "mixer_notes": "5 مقاطع أطول من مدة المشهد (2، 5، 6، 7، 9): قُصّ السكون الطرفي (0.3-0.5 ثانية) + تسريع خفيف 1.05x-1.15x عند المونتاج عشان تدخل في المدة المحددة. باقي المقاطع تدخل زي ما هي."
   },
   "seo": {
     "primary_keyword": "ليه السما زرقا",
