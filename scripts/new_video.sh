@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# new_video.sh — يبدأ فيديو جديد: بيعمل فولدر في videos/ مع قوالب كل مرحلة
+# new_video.sh — يبدأ فيديو جديد: بيعمل فولدر فيه video.json جاهز للتعبئة
 #
 # الاستخدام:
 #   ./scripts/new_video.sh "ليه البحر مالح؟"
@@ -14,110 +14,84 @@ fi
 
 DATE="$(date +%Y-%m-%d)"
 SLUG="$(printf '%s' "$TITLE" | tr ' ' '-' | tr -d '/\\:*?"<>|'"'"'')"
+ID="${DATE}-$(date +%H%M%S)"
 DIR="videos/${DATE}-${SLUG}"
 
 mkdir -p "$DIR"
 
-cat > "$DIR/01-idea.md" << 'EOF'
-# 💡 الفكرة
-
-- **العنوان:**
-- **العمود:** (أسئلة طب ليه؟ / غرائب علمية / حيوان / تاريخ / فضاء)
-- **الخطاف:** ليه المشاهد هيدوس؟
-- **تقييم مدير المحتوى:** ✅ / ❌ + السبب
-- **موعد النشر المقترح:** (الثلاثاء أو الجمعة 7:00 مساءً بتوقيت السعودية)
+cat > "$DIR/video.json" << EOF
+{
+  "meta": {
+    "id": "$ID",
+    "title": "$TITLE",
+    "status": "research",
+    "current_owner": "researcher",
+    "target_publish": "",
+    "history": []
+  },
+  "research": {
+    "by": "researcher",
+    "questions": [],
+    "facts": [],
+    "scene_visuals": []
+  },
+  "hook": {
+    "text": "",
+    "duration_sec": 25,
+    "by": "scriptwriter"
+  },
+  "intro": {
+    "logo": "assets/logo/logo-final-800.png",
+    "sound": "assets/voice/intro-sample.mp3",
+    "animation": "zoom-in",
+    "duration_sec": 5
+  },
+  "scenes": [],
+  "outro": {
+    "text": "",
+    "interactive_questions": [],
+    "end_screen": true,
+    "duration_sec": 20
+  },
+  "audio": {
+    "voiceover": {
+      "voice_id": "voice-00",
+      "files": [],
+      "synced": false
+    },
+    "music": {
+      "track": "",
+      "source": "youtube_audio_library",
+      "url": "",
+      "volume": 0.15
+    },
+    "sfx": [],
+    "mixer_notes": ""
+  },
+  "seo": {
+    "title": "",
+    "description": "",
+    "tags": [],
+    "by": "seo-manager"
+  },
+  "thumbnail": {
+    "ideas": [],
+    "chosen": "",
+    "by": "thumbnail-designer"
+  },
+  "publish": {
+    "scheduled_at": "",
+    "checklist": [],
+    "by": "publisher"
+  },
+  "review": {
+    "fact_check": { "status": "pending", "by": "fact-checker", "notes": "" },
+    "language": { "status": "pending", "by": "language-editor", "notes": "" },
+    "user_approval": { "status": "pending", "notes": "" }
+  }
+}
 EOF
 
-cat > "$DIR/02-research.md" << 'EOF'
-# 🔍 البحث
-
-## الأسئلة الفرعية
-1.
-2.
-3.
-
-## جدول الحقائق
-| # | المعلومة | المصدر | الرابط |
-|---|---|---|---|
-| 1 | | | |
-
-## تشبيهات من البيئة الخليجية
-
-## 🟡 معلوماة غير مؤكدة (للمدقّق)
-EOF
-
-cat > "$DIR/03-script.md" << 'EOF'
-# ✍️ السكريبت
-
-## الهوك (0:00–0:30)
-
-## التمهيد (0:30–1:30)
-
-## القسم 1:
-## القسم 2:
-## القسم 3:
-
-## الذروة
-
-## الخاتمة + دعوة للاشتراك + سؤال للتعليقات
-
----
-## ✅ موافقة CEO
-- [ ] موافق — التاريخ / ملاحظات
-EOF
-
-cat > "$DIR/04-review.md" << 'EOF'
-# 🖋️ المراجعة اللغوية + التحقق
-
-## ملاحظات اللسانيات
-| المكان | قبل | بعد | السبب |
-|---|---|---|---|
-
-## 🔍 تقرير التحقق (مدقق الحقائق)
-| # | المعلومة | الحالة (مؤكدة/محتملة/غير مؤكدة/خرافة) | المصدر |
-|---|---|---|---|
-EOF
-
-cat > "$DIR/05-seo.md" << 'EOF'
-# 🔎 السيو
-
-- **الكلمة المفتاحية الأساسية:**
-- **عناوين مرشحة:**
-  1.
-  2.
-  3.
-- **الوصف:**
-- **التاجات:** (8–12)
-- **الهاشتاجات:**
-EOF
-
-cat > "$DIR/06-thumbnail.md" << 'EOF'
-# 🎨 أفكار الثمبنيل
-
-1. **فكرة 1:**
-2. **فكرة 2:**
-3. **فكرة 3:**
-
-- **الألوان:** أزرق داكن + برتقالي/ذهبي
-EOF
-
-cat > "$DIR/07-publish.md" << 'EOF'
-# 📅 النشر
-
-- **الموعد:** (الثلاثاء أو الجمعة 7:00 مساءً بتوقيت السعودية)
-
-## قبل النشر (24 ساعة)
-- [ ] العنوان والوصف والتاجات
-- [ ] الثمبنيل النهائي (1280×720)
-- [ ] End screen + Cards
-- [ ] السبتايتل
-- [ ] موافقة CEO موثّقة
-
-## بعد النشر
-- [ ] تثبيت تعليق
-- [ ] منشور Community
-- [ ] متابعة أول ساعة
-EOF
-
-echo "✅ تم إنشاء الفيديو: $DIR"
-echo "   الخطوة الجاية: املأ 01-idea.md وسيبها للباحث ومدير المحتوى."
+echo "✅ تم إنشاء الفيديو: $DIR/video.json"
+echo "   الخطوة الجاية: الباحث يكتب قسم research ويسلّم تقريرلك للمراجعة."
+echo "   التحقق من القواعد: python3 scripts/validate_video.py $DIR/video.json"

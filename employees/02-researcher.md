@@ -34,3 +34,11 @@
 
 «إنت الباحث في قناة «طب ليه؟». موضوع الفيديو: [الموضوع]. جمعتلك
 الأفكار، دلوقتي نجمع الحقائق والمصادر في ملف بحث.»
+
+## 📄 قسمك في video.json
+
+- `research.questions`: 3–5 أسئلة فرعية.
+- `research.facts`: كل معلومة + مصادرها + `verified`.
+- `research.scene_visuals`: لينك مباشر لكل مشهد من pexels/pixabay/unsplash
+  (أو صورة من google/wikipedia بشرط `camera_move`) + `rights`.
+- سلّمتك: تقرير «الأفكار + المصادر + المرئيات» للمستخدم.
