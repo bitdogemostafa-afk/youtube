@@ -1,17 +1,17 @@
 {
-  "_README": "Production plan — THE BATON. Every employee reads this file, updates ONLY their section, saves it, and hands it to the next employee: researcher -> fact-checker -> scriptwriter -> language-editor -> voiceover-artist -> thumbnail-designer -> seo-manager -> audio-mixer -> video-editor -> publisher -> data-analyst. Scenes are EXACTLY meta.scene_duration (10.0s). EVERY scene is VIDEO footage from pexels/pixabay/unsplash (scenes[].footage) EXCEPT at most TWO still scenes (scenes[].visuals, max 2 stills each). Every clip must show exactly what the narration says. The audio mix (voice + music + SFX) is fully driven by the audio block.",
+  "_README": "Production plan — THE BATON. Every employee reads this file, updates ONLY their section, saves it, and hands it to the next employee: researcher -> fact-checker -> scriptwriter -> language-editor -> voiceover-artist -> thumbnail-designer -> seo-manager -> audio-mixer -> video-editor -> publisher -> data-analyst. Scenes are EXACTLY 10.0s. EVERY scene is VIDEO footage from pexels/pixabay/unsplash EXCEPT the two still scenes (11 and 53). Every clip must show exactly what the narration says. The audio mix is fully driven by the audio block.",
   "meta": {
-    "video_id": "",
-    "title": "",
+    "video_id": "2026-10-01-ريحة-المطر",
+    "title": "ليه ريحة المطر حلوة كده؟ — اللغز اللي البكتيريا عملته",
     "status": "draft",
     "output": "final.mp4",
     "scene_duration": 10.0,
     "transition_duration": 0.5,
     "fps": 25,
-    "width": 1280,
-    "height": 720,
+    "width": 3840,
+    "height": 2160,
     "language": "ar-EG",
-    "total_duration_sec": null
+    "total_duration_sec": 599
   },
   "brand": {
     "intro": "brand/intro.mp4",
@@ -22,45 +22,116 @@
     "footage_dir": "brand/footage"
   },
   "research": {
-    "topic": "",
-    "angle": "",
+    "topic": "ريحة المطر (petrichor) — مصدرها الحقيقي وآلية وصولها للهواء",
+    "angle": "اللغز المركزي: مين اللي عامل الريحة؟ — الإجابة: بكتيريا ستربتوميسيس via الجيوسمين، والريحة رسالة كيميائية عمرها نصف مليار سنة",
     "facts": [
-      {"fact": "", "why_surprising": "", "source": "", "confidence": "", "verdict": ""}
+      {"fact": "المطر في حد ذاته ليس له رائحة؛ الريحة تأتي من تفاعل الماء مع التربة الجافة", "why_surprising": "الجميع يظن أن الرائحة من المطر نفسه", "source": "https://www.aljazeera.net/science/2019/11/3/", "confidence": "high", "verdict": "VERIFIED"},
+      {"fact": "الاسم petrichor صاغه عالمان أستراليان (Isabel Joy Bear و Richard G. Thomas) في ورقة بـ Nature سنة 1964", "why_surprising": "اسم علمي لشيء يعرفه كل إنسان", "source": "https://www.farmersalmanac.com/petrichor", "confidence": "high", "verdict": "VERIFIED"},
+      {"fact": "الاسم من اليوناني: petra (حجر) + ichor (سائل عروق الآلهة)", "why_surprising": "تسمية أسطورية لظاهرة ترابية", "source": "https://www.farmersalmanac.com/petrichor", "confidence": "high", "verdict": "VERIFIED"},
+      {"fact": "المركب الرئيسي هو الجيوسمين (C12H22O) من اليوناني geo (أرض) + osme (رائحة)", "why_surprising": "جزيء واحد يحمل هوية الريحة", "source": "https://sciencenotes.org/petrichor-and-geosmin-the-smell-of-rain/", "confidence": "high", "verdict": "VERIFIED"},
+      {"fact": "الجيوسمين ينتجه بكتيريا Streptomyces (شعاعية) والطحالب الخيطاء في التربة", "why_surprising": "الريحة منتج حياة مجهرية لا صخر", "source": "https://sciencenotes.org/petrichor-and-geosmin-the-smell-of-rain/", "confidence": "high", "verdict": "VERIFIED"},
+      {"fact": "البشر يكشفون الجيوسمين عند ~5 أجزاء من التريليون", "why_surprising": "حساسية تفوق القرش للدم بنحو 200 ألف مرة", "source": "https://www.air-aroma.com/blog/petrichor/", "confidence": "high", "verdict": "VERIFIED"},
+      {"fact": "آلية الإطلاق: قطرة المطر تحبس فقاعة هواء تنفجر قاذفة هباءات دقيقة (MIT 2015، Joung & Buie، Nature Communications)", "why_surprising": "الريحة قنبلة عطر ميكانيكية", "source": "https://www.air-aroma.com/blog/petrichor/", "confidence": "high", "verdict": "VERIFIED"},
+      {"fact": "المطر الخفيف ينتج بتريكور أقوى من المطر الغزير (الغزارة تغرق المسام قبل تكوّن الفقاعات)", "why_surprising": "نتيجة عكس المنطق السائد", "source": "https://premierepeau.com/blogs/news/petrichor-rain-smell-scents-not-bottled", "confidence": "high", "verdict": "VERIFIED"},
+      {"fact": "الريحة قبل المطر هي الأوزون (O3) المتكون من البرق وليس البتريكور", "why_surprising": "ريحتان مختلفتان يخلط بينهما الناس", "source": "https://www.farmersalmanac.com/petrichor", "confidence": "high", "verdict": "VERIFIED"},
+      {"fact": "نظرية تطورية: حساسية الجيوسمين منحت أسلافنا ability على كشف المطر والماء (والجمال تشاركها)", "why_surprising": "الريحة كانت فرق بين الحياة والموت", "source": "https://premierepeau.com/blogs/news/petrichor-rain-smell-scents-not-bottled", "confidence": "medium", "verdict": "VERIFIED"},
+      {"fact": "الجيوسمين إشارة كيميائية تجذب الربيعيات (springtails) لنشر جراثيم Streptomyces — علاقة عمرها ~500 مليون سنة (John Innes Centre / السويد)", "why_surprising": "الريحة رسالة أصلية لحشرات لا نراها", "source": "https://www.jic.ac.uk/press-release/research-unearths-the-science-behind-the-smell-of-spring/", "confidence": "high", "verdict": "VERIFIED"},
+      {"fact": "Streptomyces مصدر Streptomycin من أوائل المضادات الحيوية (S. griseus)", "why_surprising": "نفس الكائن يصنع الريحة والدواء", "source": "https://timesofindia.indiatimes.com/science/", "confidence": "high", "verdict": "VERIFIED"},
+      {"fact": "الجيوسمين مسؤول أيضاً عن الطعم الترابي في البنجر", "why_surprising": "نفس الجزيء في التراب والطعام", "source": "https://www.farmersalmanac.com/petrichor", "confidence": "high", "verdict": "VERIFIED"},
+      {"fact": "البتريكور يتغير حسب التربة والمناخ؛ ولا يمكن تقليده بجزيء واحد (مزيج: جيوسمين + زيوت نباتية + مركبات معدنية)", "why_surprising": "العطور المقلدة تقريبية فقط", "source": "https://www.sciencetimes.com/articles/61780/", "confidence": "high", "verdict": "VERIFIED"}
     ],
     "competitive_study": [
-      {"channel": "", "hook": "", "structure": "", "strengths": "", "gaps": ""}
+      {"channel": "الدحيح (أحمد الغندور)", "hook": "سؤال وجودي مبسط + كوميديا خفيفة", "structure": "قصة ببداية ومنتصف ونهاية + رسوم", "strengths": "سلسلة السرد وتقريب العلم", "gaps": "لا يستخدم لقطة حقيقية 4K ولا مؤثرات صوتية دقيقة"},
+      {"channel": "يوريكا شو (سعودي)", "hook": "سؤال مباشر + وعود واضحة", "structure": "أقسام مرقمة + تجارب بصرية", "strengths": "إيقاع سريع وجمهور خليجي", "gaps": "عمق علمي أقل في المصادر"},
+      {"channel": "Zack D. Films / Vsauce", "hook": "سؤال واحد لا يقاوم + loop مفتوح", "structure": "سؤال → رحلة → كشف", "strengths": "بناء التشويق والكشف المتدرج", "gaps": "بالإنجليزي — فرصة لنا بالعربي"}
     ],
     "hook_candidates": [
-      {"hook": "", "style": "", "rank": 1}
+      {"hook": "في يوم من الأيام وقفت تحت السما وحسيت بريحة عمرها ما شمتها... ريحة المطر. بس الغريب إنت شمتها قبل ما المطر ينزل. مين اللي بعتها؟", "style": "curiosity gap + sensory", "rank": 1},
+      {"hook": "الأنف البشري أحرص من القرش على الدم بمائتين ألف مرة... وكل ده عشان ريحة تراب", "style": "bold claim + comparison", "rank": 2},
+      {"hook": "المطر مالوش ريحة. واللي بتحس بيهactually رسالة من بكتيريا أقدم من الديناصورات", "style": "counterintuitive fact", "rank": 3}
     ]
   },
   "fact_check": {
-    "verified_by": "",
-    "notes": "",
-    "citations": []
+    "verified_by": "fact-checker",
+    "notes": "كل الحقائق مؤكدة من مصادر علمية/إخبارية موثوقة. الرقم 5 أجزاء في التريليون هو الأكثر تكراراً في المصادر (بعضها يذكر 100 جزء). علاقة الربيعيات مؤكدة من John Innes Centre.",
+    "citations": [
+      "https://www.aljazeera.net/science/2019/11/3/",
+      "https://www.nature.com/ (Bearer & Thomas 1964)",
+      "https://www.jic.ac.uk/press-release/research-unearths-the-science-behind-the-smell-of-spring/",
+      "https://sciencenotes.org/petrichor-and-geosmin-the-smell-of-rain/",
+      "https://www.air-aroma.com/blog/petrichor/"
+    ]
   },
   "script": {
-    "central_mystery": "",
-    "hook_narration": "",
-    "outro_narration": "",
-    "cta": ""
+    "central_mystery": "مين اللي عامل ريحة المطر، وليه بنحس بيها قبل ما المطر ينزل؟",
+    "hook_narration": "في يوم من الأيام، وقفت تحت السما... وحسيت بريحة عمرها ما شمتها.",
+    "outro_narration": "شكراً إنك سمعتني للنهاية... شارك الفيديو مع واحد بتحبه.",
+    "cta": "اعمل لايك واشترك في القناة — وجرب بعد أول مطر خفيف تقف وابص تحت رجلك"
   },
   "scenes": [
-    {
-      "id": 1,
-      "narration": "",
-      "footage_query": "blue sky sun rays clouds timelapse",
-      "footage_source": "pexels",
-      "footage": "brand/footage/scene-01.mp4",
-      "visual_prompt": "ENGLISH image prompt — only for the (max 2) still scenes",
-      "visuals": [".build/scenes/scene-01a.jpg", ".build/scenes/scene-01b.jpg"],
-      "audio": ".build/audio/scene-01.mp3",
-      "move": "zoom-in",
-      "move_b": "zoom-out",
-      "transition": "fade",
-      "intra_transition": "fade",
-      "sfx": "whoosh"
-    }
+    {"id": 1, "narration": "في يوم من الأيام، وقفت تحت السما... وحسيت بريحة عمرها ما شمتها. ريحة المطر. بس الغريب... شمتها قبل ما المطر ينزل. مين اللي بعتها؟", "footage_query": "man standing looking up at dark storm clouds gathering sky", "footage_source": "pexels", "footage": "brand/footage/scene-01.mp4", "audio": ".build/audio/scene-01.mp3", "transition": "fade", "sfx": "whoosh"},
+    {"id": 2, "narration": "المطر في حد ذاته... مالهوش ريحة. ماء نقي. بس اللي بيوصل لأنفك ريحة قوية جداً... ريحة التراب المبلول. يعني فيه حاجة في الأرض... حاجة بتتكلم.", "footage_query": "rain drops falling on dry cracked soil close up macro", "footage_source": "pexels", "footage": "brand/footage/scene-02.mp4", "audio": ".build/audio/scene-02.mp3", "transition": "fade", "sfx": "whoosh"},
+    {"id": 3, "narration": "والسؤال اللي حيّر العلماء سنين... مين اللي عامل الريحة دي؟ وليه بنحبها بالشكل ده؟ والإجابة... أبعد ما تتخيل بكتير.", "footage_query": "dry earth texture cracks warm sunlight close up", "footage_source": "pexels", "footage": "brand/footage/scene-03.mp4", "audio": ".build/audio/scene-03.mp3", "transition": "fade", "sfx": "whoosh"},
+    {"id": 4, "narration": "عشان توصل للإجابة، محتاج تسافر معايا... من التربة تحت رجلك... لجزيء صغير... لبكتيريا عمرها ملايين السنين. يلا بينا.", "footage_query": "aerial view flying over dry barren landscape soil", "footage_source": "pexels", "footage": "brand/footage/scene-04.mp4", "audio": ".build/audio/scene-04.mp3", "transition": "fade", "sfx": "whoosh"},
+    {"id": 5, "narration": "أول حاجة: الريحة دي عندها اسم. اسم علمي مسجل. اسم اكتشفه اتنين من أستراليا... في ورقة بحث قصيرة غيّرت كل حاجة.", "footage_query": "vintage scientists writing research paper at desk", "footage_source": "pexels", "footage": "brand/footage/scene-05.mp4", "audio": ".build/audio/scene-05.mp3", "transition": "fade", "sfx": "whoosh"},
+    {"id": 6, "narration": "سنة 1964، عالمين أستراليين اسمهم إيزابيل بير وريتشارد توماس... نشروا ورقة قصيرة في مجلة Nature. وسموا الريحة اسم جديد... بتريكور.", "footage_query": "old vintage nature science journal pages close up", "footage_source": "pexels", "footage": "brand/footage/scene-06.mp4", "audio": ".build/audio/scene-06.mp3", "transition": "fade", "sfx": "whoosh"},
+    {"id": 7, "narration": "الاسم من اليوناني: بترا يعني الحجر... وإيكور يعني السائل اللي كان بيجري في عروق الآلهة. يعني حرفياً... رائحة حجرية إلهية.", "footage_query": "ancient greek stone temple ruins texture close up", "footage_source": "pexels", "footage": "brand/footage/scene-07.mp4", "audio": ".build/audio/scene-07.mp3", "transition": "fade", "sfx": "whoosh"},
+    {"id": 8, "narration": "بس الاسم مجرد بداية. لأن السؤال الحقيقي... مين اللي عامل الريحة؟ ومشان كده لازم ننزل تحت الأرض... نشوف اللي بيحصل هناك.", "footage_query": "hands digging dark soil close up macro", "footage_source": "pexels", "footage": "brand/footage/scene-08.mp4", "audio": ".build/audio/scene-08.mp3", "transition": "fade", "sfx": "whoosh"},
+    {"id": 9, "narration": "تحت التربة، في كائنات عمرها ملايين السنين... بكتيريا خيطية اسمها ستربتوميسيس. وأول ديناصور على الأرض... ظهر بعدها بمئات ملايين السنين.", "footage_query": "microscopic filamentous bacteria animation dark background", "footage_source": "pexels", "footage": "brand/footage/scene-09.mp4", "audio": ".build/audio/scene-09.mp3", "transition": "fade", "sfx": "whoosh"},
+    {"id": 10, "narration": "البكتيريا دي بتعيش في التربة الجافة... وبتنتج مركب كيميائي اسمه جيوسمين. والاسم من اليوناني برضه: جيو يعني أرض... وأوزمي يعني رائحة.", "footage_query": "soil cross section layers underground dark macro", "footage_source": "pexels", "footage": "brand/footage/scene-10.mp4", "audio": ".build/audio/scene-10.mp3", "transition": "fade", "sfx": "whoosh"},
+    {"id": 11, "narration": "الجيوسمين هو النجم. هو اللي بيديك الإحساس الترابي القوي... نفس الريحة اللي بتحسها وإنت ماشي في الحقل بعد الشتاء.", "visual_prompt": "STILL SCENE 1 — scientific visualization of a single organic molecule glowing in a dark void, cinematic deep blue and teal, macro photography style, ultra detailed", "visuals": [".build/scenes/scene-11a.jpg", ".build/scenes/scene-11b.jpg"], "audio": ".build/audio/scene-11.mp3", "move": "zoom-in", "move_b": "zoom-out", "transition": "fade", "sfx": "whoosh"},
+    {"id": 12, "narration": "والمفاجأة... البكتيريا دي بتنتج الجيوسمين وإنت بتعمل إيه؟ لما تكون بتكوّن جراثيم. يعني الريحة... سلاح بقاء مش رفاهية.", "footage_query": "bacterial spores abstract animation glowing dark", "footage_source": "pexels", "footage": "brand/footage/scene-12.mp4", "audio": ".build/audio/scene-12.mp3", "transition": "fade", "sfx": "whoosh"},
+    {"id": 13, "narration": "والأعجب... الجيوسمين مش في المطر. مش في الماء. هو موجود في التربة من زمان... مستني. مستني المطر ينزل عشان يطير.", "footage_query": "dry soil surface heat shimmer waiting for rain", "footage_source": "pexels", "footage": "brand/footage/scene-13.mp4", "audio": ".build/audio/scene-13.mp3", "transition": "fade", "sfx": "whoosh"},
+    {"id": 14, "narration": "وهنا يظهر السؤال التالي... إزاي الجزيء الصغير ده... يوصل من التربة لأنفك؟ والسبب... أهو جاي.", "footage_query": "single raindrop falling slow motion dark background", "footage_source": "pexels", "footage": "brand/footage/scene-14.mp4", "audio": ".build/audio/scene-14.mp3", "transition": "fade", "sfx": "whoosh"},
+    {"id": 15, "narration": "المطر ينزل... القطرة بتصدم الأرض الجافة... وفي اللحظة دي بيحصل حاجة خطيرة. القطرة بتحبس فقاعة هواء صغيرة تحتها.", "footage_query": "raindrop impact dry soil slow motion extreme macro", "footage_source": "pexels", "footage": "brand/footage/scene-15.mp4", "audio": ".build/audio/scene-15.mp3", "transition": "fade", "sfx": "whoosh"},
+    {"id": 16, "narration": "الفقاعة بتصعد جوه القطرة... وبتوصل للسطح... وتنفجر. وكل انفجار بيرمي رشة من القطرات الدقيقة. اسمها الهباء الجوي.", "footage_query": "air bubble rising inside water droplet slow motion", "footage_source": "pexels", "footage": "brand/footage/scene-16.mp4", "audio": ".build/audio/scene-16.mp3", "transition": "fade", "sfx": "whoosh"},
+    {"id": 17, "narration": "سنة 2015، فريق من معهد ماساتشوستس... صور العملية بكاميرات فائقة السرعة. وشافت إن القطرة الواحدة... بتنتج مئات الهباءات.", "footage_query": "high speed camera laboratory water splash research", "footage_source": "pexels", "footage": "brand/footage/scene-17.mp4", "audio": ".build/audio/scene-17.mp3", "transition": "fade", "sfx": "whoosh"},
+    {"id": 18, "narration": "القطرات دي شايلة الجيوسمين... والزيوت النباتية... وجراثيم البكتيريا. والرياح تاخدها... وتوصلها لأنفك. دي آلية البتريكور.", "footage_query": "wind blowing dust particles in sunlight close up", "footage_source": "pexels", "footage": "brand/footage/scene-18.mp4", "audio": ".build/audio/scene-18.mp3", "transition": "fade", "sfx": "whoosh"},
+    {"id": 19, "narration": "بس فيه مفاجأة هنا... المطر الخفيف بيعمل الريحة أقوى من المطر الغزير. نعم! المطر الخفيف. والسبب... في فيزياء القطرة.", "footage_query": "gentle light rain drizzle on green leaves close up", "footage_source": "pexels", "footage": "brand/footage/scene-19.mp4", "audio": ".build/audio/scene-19.mp3", "transition": "fade", "sfx": "whoosh"},
+    {"id": 20, "narration": "لما المطر يكون غزير، مسام الأرض بتتغرق بسرعة. الفقاعة ملهاش وقت تتكون. الريحة تختفي تقريباً. الغزارة بتقتل الروائح.", "footage_query": "heavy rain downpour flooding street city", "footage_source": "pexels", "footage": "brand/footage/scene-20.mp4", "audio": ".build/audio/scene-20.mp3", "transition": "fadeblack", "sfx": "whoosh"},
+    {"id": 21, "narration": "يعني أقوى ريحة للمطر... أول دقايق من مطر خفيف... بعد فترة جفاف طويلة. مش في العاصفة. في الهدوء اللي قبلها.", "footage_query": "first light rain on dry ground at sunrise", "footage_source": "pexels", "footage": "brand/footage/scene-21.mp4", "audio": ".build/audio/scene-21.mp3", "transition": "fade", "sfx": "whoosh"},
+    {"id": 22, "narration": "وبعد ما المطر يفضل نازل شوية... الريحة تبدأ تختفي. ليه؟ لأن اللي كان مخزون في الأرض... خلص وطار. والبكتيريا ترجع تنتظر.", "footage_query": "rain stopping clouds clearing sunlight over landscape", "footage_source": "pexels", "footage": "brand/footage/scene-22.mp4", "audio": ".build/audio/scene-22.mp3", "transition": "fade", "sfx": "whoosh"},
+    {"id": 23, "narration": "لكن فيه ريحة تانية بتيجي قبل المطر... ريحة حادة ونضيفة. مش بتريكور. دي الأوزون. بيتكون لما البرق يقسم الأكسجين.", "footage_query": "lightning strike storm clouds night sky dramatic", "footage_source": "pexels", "footage": "brand/footage/scene-23.mp4", "audio": ".build/audio/scene-23.mp3", "transition": "fade", "sfx": "whoosh"},
+    {"id": 24, "narration": "الرياح بتشيل الأوزون... وتجري بيه قدام العاصفة. فإنت بتحس بالريحة... قبل أول قطرة أحياناً بمئات الكيلومترات.", "footage_query": "strong wind blowing trees before storm dramatic", "footage_source": "pexels", "footage": "brand/footage/scene-24.mp4", "audio": ".build/audio/scene-24.mp3", "transition": "fade", "sfx": "whoosh"},
+    {"id": 25, "narration": "فخلينا نرتب المشهد: الريحة اللي قبل المطر... أوزون من البرق. الريحة اللي بعد المطر... بتريكور من التربة. اتنين مختلفين خالص.", "footage_query": "storm clouds approaching over landscape timelapse", "footage_source": "pexels", "footage": "brand/footage/scene-25.mp4", "audio": ".build/audio/scene-25.mp3", "transition": "fade", "sfx": "whoosh"},
+    {"id": 26, "narration": "ودلوقتي... السؤال الأخطر. ليه إنت بالذات حاسس بالريحة دي؟ إزاي أنفك شايف الجزيء الصغير ده؟ وهنا تبدأ القصة الحقيقية.", "footage_query": "human nose profile close up portrait dramatic light", "footage_source": "pexels", "footage": "brand/footage/scene-26.mp4", "audio": ".build/audio/scene-26.mp3", "transition": "fade", "sfx": "whoosh"},
+    {"id": 27, "narration": "الأنف البشري يقدر يشم الجيوسمين... بتركيز أقل من 5 أجزاء في التريليون. يعني ذوبت ملعقة سكر... في بركة أولمبية كاملة.", "footage_query": "sugar cube dissolving in glass of water macro", "footage_source": "pexels", "footage": "brand/footage/scene-27.mp4", "audio": ".build/audio/scene-27.mp3", "transition": "fade", "sfx": "whoosh"},
+    {"id": 28, "narration": "عشان تفهم الرقم: القرش الأبيض بيشم نقطة دم... في المحيط بتركيز جزء في المليون. إنت أحرص من القرش... بمائتين ألف مرة.", "footage_query": "great white shark swimming deep ocean cinematic", "footage_source": "pexels", "footage": "brand/footage/scene-28.mp4", "audio": ".build/audio/scene-28.mp3", "transition": "fade", "sfx": "whoosh"},
+    {"id": 29, "narration": "مبالغة؟ لأ. دي أرقام. وفيه نظرية بتقول الحساسية دي... مش صدفة. أسلافنا على السافانا... كانوا بيلقوا المطر بالريحة.", "footage_query": "african savanna dry season landscape aerial", "footage_source": "pexels", "footage": "brand/footage/scene-29.mp4", "audio": ".build/audio/scene-29.mp3", "transition": "fade", "sfx": "whoosh"},
+    {"id": 30, "narration": "اللي يشم المطر بدري... يتحرك بدري. يلاقي مياه. يلاقي صيد. اللي مايشمهوش... يتخلف. الريحة كانت فرق بين الحياة والموت.", "footage_query": "early humans walking savanna documentary style", "footage_source": "pexels", "footage": "brand/footage/scene-30.mp4", "audio": ".build/audio/scene-30.mp3", "transition": "fade", "sfx": "whoosh"},
+    {"id": 31, "narration": "وحتى النهاردة... فيه حيوانات بتعتمد على نفس الحساسية. الجمال في الصحراء... بتلاقي الماء بالريحة من مسافات بعيدة.", "footage_query": "camel walking desert sand dunes cinematic", "footage_source": "pexels", "footage": "brand/footage/scene-31.mp4", "audio": ".build/audio/scene-31.mp3", "transition": "fade", "sfx": "whoosh"},
+    {"id": 32, "narration": "والمفاجأة الكبيرة... الجيوسمين مش رسالة لإحنا. الرسالة الأصلية... لكائنات تانية صغيرة جداً. كائنات عمرها نص مليار سنة.", "footage_query": "tiny springtail insect macro on soil", "footage_source": "pexels", "footage": "brand/footage/scene-32.mp4", "audio": ".build/audio/scene-32.mp3", "transition": "fade", "sfx": "whoosh"},
+    {"id": 33, "narration": "في السويد، باحثين حطوا فخاخ مليانة بكتيريا ستربتوميسيس... واللي جذبتها كائنات صغيرة اسمها الربيعيات. حشرات لا تري بالعين.", "footage_query": "scientists setting traps in field research", "footage_source": "pexels", "footage": "brand/footage/scene-33.mp4", "audio": ".build/audio/scene-33.mp3", "transition": "fade", "sfx": "whoosh"},
+    {"id": 34, "narration": "الربيعيات بتتجاذب للريحة... بتتغذى على البكتيريا... وتنشر جراثيمها في مكان جديد. يعني الجيوسمين... إعلان دعاية.", "footage_query": "small insects attracted to bait macro soil", "footage_source": "pexels", "footage": "brand/footage/scene-34.mp4", "audio": ".build/audio/scene-34.mp3", "transition": "fade", "sfx": "whoosh"},
+    {"id": 35, "narration": "البكتيريا بتقول: تعالوا هنا فيه أكل. والربيعيات بتسمع. وعلاقة عمرها نص مليار سنة... ماشية من غير ما حد يعرف.", "footage_query": "abstract microbial world animation dark cinematic", "footage_source": "pexels", "footage": "brand/footage/scene-35.mp4", "audio": ".build/audio/scene-35.mp3", "transition": "fade", "sfx": "whoosh"},
+    {"id": 36, "narration": "والأعجب من كده... البكتيريا دي هي نفسها مصدر أهم المضادات الحيوية. الستربتوميسين... واحد من أوائل المضادات... جاي من نفس الخلية.", "footage_query": "petri dish bacteria culture laboratory close up", "footage_source": "pexels", "footage": "brand/footage/scene-36.mp4", "audio": ".build/audio/scene-36.mp3", "transition": "fade", "sfx": "whoosh"},
+    {"id": 37, "narration": "الكائن اللي بيعملك الريحة الحلوة... هو نفسه اللي بيقاوم العدوى في جسمك. ده مش كائن مؤذي. ده شريك صامت.", "footage_query": "antibiotic medicine pills close up macro", "footage_source": "pexels", "footage": "brand/footage/scene-37.mp4", "audio": ".build/audio/scene-37.mp3", "transition": "fade", "sfx": "whoosh"},
+    {"id": 38, "narration": "والجيوسمين موجود في حاجات تانية... البنجر. نفس الجزيء اللي في التراب... هو اللي بيديك الطعم الترابي في البنجر.", "footage_query": "fresh beetroot beets on soil close up", "footage_source": "pexels", "footage": "brand/footage/scene-38.mp4", "audio": ".build/audio/scene-38.mp3", "transition": "fade", "sfx": "whoosh"},
+    {"id": 39, "narration": "وحتى صناعة العطور... حاولت تقليد الريحة. Demeter و Comme des Garçons... عملوا عطور برايحة المطر. بس المقلد... عمره ما يوصل الأصل.", "footage_query": "luxury perfume bottle close up dark elegant", "footage_source": "pexels", "footage": "brand/footage/scene-39.mp4", "audio": ".build/audio/scene-39.mp3", "transition": "fade", "sfx": "whoosh"},
+    {"id": 40, "narration": "والسبب إن الريحة مش جزيء واحد. هي أوركسترا. جيوسمين... وزيوت نباتية... ومركبات معدنية... وكل تربة عندها أوركسترا مختلفة.", "footage_query": "perfumer laboratory with ingredients bottles", "footage_source": "pexels", "footage": "brand/footage/scene-40.mp4", "audio": ".build/audio/scene-40.mp3", "transition": "fade", "sfx": "whoosh"},
+    {"id": 41, "narration": "في الهند، بيستخلصوا ريحة المطر منذ أكثر من قرن... من زيت الصندل. بيسموه عطر المطر. أقدم تجارة لريحة عمرها ما شفناها.", "footage_query": "traditional indian sandalwood oil distillation", "footage_source": "pexels", "footage": "brand/footage/scene-41.mp4", "audio": ".build/audio/scene-41.mp3", "transition": "fade", "sfx": "whoosh"},
+    {"id": 42, "narration": "والتربة نفسها بتغير الريحة. طينية... رملية... صخرية. كل واحدة بتدي نوتة مختلفة. البتريكور مالوش طعم عالمي.", "footage_query": "different soil types clay sand stone texture", "footage_source": "pexels", "footage": "brand/footage/scene-42.mp4", "audio": ".build/audio/scene-42.mp3", "transition": "fade", "sfx": "whoosh"},
+    {"id": 43, "narration": "وحتى المكان بيفرق. ريحة المطر في القاهرة... مش زيها في دبي. ولا زيها في السويد. التربة والباكتيريا... هما هوية المكان.", "footage_query": "middle eastern city street rain aerial cinematic", "footage_source": "pexels", "footage": "brand/footage/scene-43.mp4", "audio": ".build/audio/scene-43.mp3", "transition": "fade", "sfx": "whoosh"},
+    {"id": 44, "narration": "وبعد كل الاكتشافات... لسه فيه سؤال واحد. السؤال اللي بدأنا بيه. ليه بنحب الريحة دي بالشكل ده؟", "footage_query": "person watching rain through window nostalgic", "footage_source": "pexels", "footage": "brand/footage/scene-44.mp4", "audio": ".build/audio/scene-44.mp3", "transition": "fade", "sfx": "whoosh"},
+    {"id": 45, "narration": "العلماء بيقولوا جزء من الحب... ذاكرة. الريحة بتفتح ذكريات الطفولة... أيام المدرسة والشتاء. الأنف متصل بأقدم جزء في الدماغ.", "footage_query": "old childhood photos rainy day nostalgic", "footage_source": "pexels", "footage": "brand/footage/scene-45.mp4", "audio": ".build/audio/scene-45.mp3", "transition": "fade", "sfx": "whoosh"},
+    {"id": 46, "narration": "وجزء تاني... الارتياح. بعد الجفاف... الأرض بتروى. والريحة بتقول لك: الحياة رجعت. جسمك بيفهم الرسالة قبل عقلك.", "footage_query": "rain falling on green plants relief close up", "footage_source": "pexels", "footage": "brand/footage/scene-46.mp4", "audio": ".build/audio/scene-46.mp3", "transition": "fade", "sfx": "whoosh"},
+    {"id": 47, "narration": "يعني اللي بتحس بيه... مش روائح. هو رسالة كيميائية... جاية من بكتيريا أقدم من الديناصورات... بتقول لك المطر جاي.", "footage_query": "abstract glowing chemical molecules animation dark", "footage_source": "pexels", "footage": "brand/footage/scene-47.mp4", "audio": ".build/audio/scene-47.mp3", "transition": "fade", "sfx": "whoosh"},
+    {"id": 48, "narration": "كل قطرة بتنفجر فوق التربة... هي فعلاً قنبلة عطر. مئات القطرات الدقيقة... كل واحدة شايلة قصة كيميائية عمرها ملايين السنين.", "footage_query": "raindrop explosion slow motion extreme macro", "footage_source": "pexels", "footage": "brand/footage/scene-48.mp4", "audio": ".build/audio/scene-48.mp3", "transition": "fade", "sfx": "whoosh"},
+    {"id": 49, "narration": "وحاسة الشم عندك... من أحرص الحواس اللي ربنا منحك إياها. أحرص من القرش للدم... وأحرص من أي أداة صنعها الإنسان.", "footage_query": "abstract human sense of smell visualization", "footage_source": "pexels", "footage": "brand/footage/scene-49.mp4", "audio": ".build/audio/scene-49.mp3", "transition": "fade", "sfx": "whoosh"},
+    {"id": 50, "narration": "وهنا نوصل للإجابة النهائية... على السؤال الأصلي. مين اللي عامل ريحة المطر؟ مش المطر. المطر مجرد رسول.", "footage_query": "rain clouds forming timelapse dramatic sky", "footage_source": "pexels", "footage": "brand/footage/scene-50.mp4", "audio": ".build/audio/scene-50.mp3", "transition": "fade", "sfx": "whoosh"},
+    {"id": 51, "narration": "اللي عاملها... بكتيريا ستربتوميسيس. خيطية صغيرة في التربة. بتنتج الجيوسمين... عشان تكلم حشرات صغيرة... وعن غير قصد... كلمت إحنا.", "footage_query": "microscopic soil bacteria animation cinematic dark", "footage_source": "pexels", "footage": "brand/footage/scene-51.mp4", "audio": ".build/audio/scene-51.mp3", "transition": "fade", "sfx": "whoosh"},
+    {"id": 52, "narration": "الريحة اللي بتحبها... هي رسالة بين كائنين مالهمش علاقة بيك. رسالة عمرها نص مليار سنة... وصلتلك بالغلط الجميل.", "footage_query": "prehistoric ancient earth landscape cinematic", "footage_source": "pexels", "footage": "brand/footage/scene-52.mp4", "audio": ".build/audio/scene-52.mp3", "transition": "fade", "sfx": "whoosh"},
+    {"id": 53, "narration": "وكل ما تشمها... إنت بتشارك في أقدم حوار على الأرض. حوار بين تراب... وبكتيريا... ومطر. وإنت جزء منه.", "visual_prompt": "STILL SCENE 2 — abstract cinematic visualization of primordial earth soil with glowing particles floating, deep amber and brown tones, mysterious ancient atmosphere, ultra detailed", "visuals": [".build/scenes/scene-53a.jpg", ".build/scenes/scene-53b.jpg"], "audio": ".build/audio/scene-53.mp3", "move": "pan-right", "move_b": "pan-left", "transition": "fade", "sfx": "whoosh"},
+    {"id": 54, "narration": "والمرة الجاية... لما تحس بالريحة قبل المطر... افتكر. مش السحاب اللي بيبعت لك رسالة. اللي بيبعتلك... تراب تحت رجلك.", "footage_query": "person smelling wet soil in hands close up", "footage_source": "pexels", "footage": "brand/footage/scene-54.mp4", "audio": ".build/audio/scene-54.mp3", "transition": "fade", "sfx": "whoosh"},
+    {"id": 55, "narration": "تراب فيه كائنات... بتستنيك من غير ما تعرفها. بتشتغل وبتنتظر... عشان أول قطرة... تكلمك باللغة الوحيدة اللي بتفهمها.", "footage_query": "close up soil under feet walking on earth", "footage_source": "pexels", "footage": "brand/footage/scene-55.mp4", "audio": ".build/audio/scene-55.mp3", "transition": "fade", "sfx": "whoosh"},
+    {"id": 56, "narration": "وده اللغز اللي اتحل النهاردة. اسمه بتريكور. سببه الجيوسمين. وصناعه بكتيريا... أقدم من أول شجرة على الأرض.", "footage_query": "rainbow after rain over landscape cinematic", "footage_source": "pexels", "footage": "brand/footage/scene-56.mp4", "audio": ".build/audio/scene-56.mp3", "transition": "fade", "sfx": "whoosh"},
+    {"id": 57, "narration": "بس فيه لغز تاني... مستني في الحلقة الجاية. ليه البحر له ريحة؟ وليه الريحة دي... بتخلي بعض الأسماك تلاقي بيتها؟", "footage_query": "mysterious deep ocean water surface dark", "footage_source": "pexels", "footage": "brand/footage/scene-57.mp4", "audio": ".build/audio/scene-57.mp3", "transition": "fade", "sfx": "whoosh"},
+    {"id": 58, "narration": "لو عجبتك الرحلة... اعمل لايك... واشترك في القناة. وجرب النهاردة... بعد أول مطر خفيف... تقف وابص تحت رجلك.", "footage_query": "youtube subscribe and like button animation", "footage_source": "pexels", "footage": "brand/footage/scene-58.mp4", "audio": ".build/audio/scene-58.mp3", "transition": "fade", "sfx": "whoosh"},
+    {"id": 59, "narration": "لأن اللي تحت رجلك... مش تراب. اللي تحت رجلك... أقدم حوار على كوكب الأرض. وإنت الوحيد اللي بيفهمه وما يعرفش.", "footage_query": "cinematic aerial rain over green landscape", "footage_source": "pexels", "footage": "brand/footage/scene-59.mp4", "audio": ".build/audio/scene-59.mp3", "transition": "fade", "sfx": "whoosh"},
+    {"id": 60, "narration": "وكمان... جرب حاجة. امش على تراب ناشف بعد شهور من الجفاف... واستنى أول قطرة. هتلاقي الريحة... أقوى مما تتخيل.", "footage_query": "dry cracked earth waiting for rain close up", "footage_source": "pexels", "footage": "brand/footage/scene-60.mp4", "audio": ".build/audio/scene-60.mp3", "transition": "fade", "sfx": "whoosh"},
+    {"id": 61, "narration": "ولو لقيت التراب مالوش ريحة... متقلقش. ده معناه إن البكتيريا هناك... بتتكلم بلهجة تانية. لهجة إنت مش سامعها.", "footage_query": "abstract dark soil texture close up moody", "footage_source": "pexels", "footage": "brand/footage/scene-61.mp4", "audio": ".build/audio/scene-61.mp3", "transition": "fade", "sfx": "whoosh"},
+    {"id": 62, "narration": "ريحة المطر... أجمد هدية من الأرض. وكل ما فهمناها أكتر... كل ما حبتها أكتر. العلم ما بيروحش السحر... العلم بيفسره.", "footage_query": "cinematic rain drops on dry soil at sunrise", "footage_source": "pexels", "footage": "brand/footage/scene-62.mp4", "audio": ".build/audio/scene-62.mp3", "transition": "fade", "sfx": "whoosh"},
+    {"id": 63, "narration": "شكراً إنك سمعتني للنهاية. لو عجبك الفيديو... شاركه مع واحد بتحبه. وبلاش عليه المرة الجاية... يقولك ريحة المطر مجرد ماء.", "footage_query": "rain falling on window glass evening warm light", "footage_source": "pexels", "footage": "brand/footage/scene-63.mp4", "audio": ".build/audio/scene-63.mp3", "transition": "fade", "sfx": "whoosh"}
   ],
   "audio": {
     "music_volume": 0.16,
@@ -74,16 +145,16 @@
     "duck_ratio": 6
   },
   "thumbnail": {
-    "concept": "",
-    "prompt": "ENGLISH image prompt (no text inside the image)",
-    "text_ar": "",
+    "concept": "وجه إنسان بيشم الهواء مع قطرات مطر متطايرة + نص عربي كبير: «ريحة المطر» — غموض",
+    "prompt": "close up of a person's face smelling the air with visible tiny water droplets and mist around, dramatic dark stormy background, cinematic lighting, high contrast, no text",
+    "text_ar": "ريحة المطر",
     "file": "thumbnail.jpg"
   },
   "metadata": {
-    "title": "",
-    "description": "",
-    "tags": [],
-    "chapters": []
+    "title": "ليه ريحة المطر حلوة كده؟ — اللغز اللي البكتيريا عملته",
+    "description": "ريحة المطر مش من المطر! تعرف على قصة بتريكور والجيوسمين والبكتيريا اللي عمرها ملايين السنين.\n\n00:00 اللغز\n00:30 اسم الريحة\n01:10 صانع الريحة\n02:20 إزاي توصل لأنفك\n04:00 الريحة قبل المطر\n05:00 أنفك ضد القرش\n06:30 رسالة للحشرات\n08:00 الإجابة\n\nمصادر: Nature 1964 · MIT 2015 · John Innes Centre",
+    "tags": ["ريحة المطر", "بتريكور", "جيوسمين", "petrichor", "علوم", "معلومات عامة", "بكتيريا", "مطر", "ألغاز علمية"],
+    "chapters": [{"t": "00:00", "title": "اللغز"}, {"t": "00:30", "title": "اسم الريحة"}, {"t": "01:10", "title": "صانع الريحة"}, {"t": "02:20", "title": "إزاي توصل لأنفك"}, {"t": "04:00", "title": "الريحة قبل المطر"}, {"t": "05:00", "title": "أنفك ضد القرش"}, {"t": "06:30", "title": "رسالة للحشرات"}, {"t": "08:00", "title": "الإجابة"}]
   },
   "analytics": {
     "ctr": null,

@@ -155,7 +155,11 @@ def build_segment(ffmpeg, label, visual, dur, w, h, fps, move="zoom-in"):
             z, x, y = f"1+0.12*on/{frames}", None, None
         if x is None:
             x, y = "iw/2-(iw/zoom/2)", "ih/2-(ih/zoom/2)"
-        vf = (f"scale=2560:1440:force_original_aspect_ratio=increase,crop=2560:1440,"
+        # pre-scale with headroom for the camera move
+        # (2x up to 1440p, 1.25x at 4K to keep it manageable)
+        pre_w = w * 2 if w <= 1440 else int(w * 1.25)
+        pre_h = h * 2 if h <= 1440 else int(h * 1.25)
+        vf = (f"scale={pre_w}:{pre_h}:force_original_aspect_ratio=increase,crop={pre_w}:{pre_h},"
               f"zoompan=z='{z}':x='{x}':y='{y}':d=1:s={w}x{h}:fps={fps},"
               f"{GRADE},format=yuv420p")
         cmd = [ffmpeg, "-y", "-loop", "1", "-framerate", str(fps),
