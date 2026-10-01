@@ -75,8 +75,16 @@
         "at": "2026-10-01",
         "report": "مجدول الثلاثاء 2026-10-06 7:00 مساءً +03:00 (5 أيام production). Checklist من 11 بند جاهز",
         "user_approved": false
+      },
+      {
+        "stage": "assembled",
+        "by": "audio-mixer",
+        "at": "2026-10-01",
+        "report": "الفيديو اتجمع: 147 ثانية، 1280×720، 13 مقطع مرئي بحركات كاميرا + تعليق صوتي ممزوج (mean -19dB)",
+        "user_approved": false
       }
-    ]
+    ],
+    "output": "videos/2026-09-30-ليه-السما-زرقا؟/final.mp4"
   },
   "research": {
     "by": "researcher",
