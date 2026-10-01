@@ -30,3 +30,31 @@
 4. **Pixabay — "Swoosh 015"** (Universfield) / **"Epic Transition"** (DRAGON-STUDIO) — https://pixabay.com/sound-effects/search/transition/
 
 > سمِّ الملفات بأسماءها (مثلاً `Valley Sunset.mp3`, `Cinematic whoosh fast transition.mp3`) — البرنامج بيلاقي الـ whoosh والـ riser من اسم الملف.
+
+---
+
+## وصفة استرداع الريسيت (مهمة — البيئة بترجّع للخلف كل دور)
+
+البيئة بترجّع تاريخ git المحلي لـ `3ce4e31` وبتمسح تثبيتات pip. الوصفة الصح:
+
+```bash
+# 1) سجّل الشغل الحالي (بما فيه الملفات الجديدة في .build/)
+git add -A ; git commit -q -m "wip: rescue" ; MYC=$(git rev-parse HEAD) ; echo "MYC=$MYC"
+
+# 2) رجّع للريموت
+git fetch -q origin arena/01a0e2d6-youtube ; git reset --hard FETCH_HEAD
+
+# 3) استرجع الملفات من الكوميت المؤقت — لازم .build/audio و .build/scenes كمان!
+git checkout $MYC -- video.json build_video.py .gitignore "الموظفين" brand \
+                     .build/audio .build/scenes
+git commit -q -m "rescue" ; git push -q origin arena/01a0e2d6-youtube
+
+# 4) رجّع ffmpeg (بيتمسح مع الريسيت)
+pip3 install --break-system-packages imageio-ffmpeg numpy
+```
+
+**الخطأ اللي اتكرر 3 مرات:** `git reset --hard` بيمسح أي ملف كان متتبّع في الكوميت المؤقت
+ومش موجود فيtarget. فلو عملت `git add -A` (بيتبّع `.build/audio` الجديد) وبعدين
+`reset --hard` من غير ما تعمل `checkout $MYC -- .build/audio`، الملفات تتشال.
+**دايماً** ضمّ `.build/audio .build/scenes` لسطر الـ checkout.
+لو اتنسيت وممسوح: `MYC` لسه موجود في `git reflog` (آخر كوميت "wip: rescue").
