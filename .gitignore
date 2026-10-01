@@ -1,0 +1,6 @@
+.build/
+__pycache__/
+*.pyc
+.DS_Store
+brand/music/placeholder-*.wav
+brand/sfx/placeholder-*.wav

@@ -1,0 +1,41 @@
+{
+  "_README": "Production plan for the current video. Source of truth for build_video.py. Scene durations are fixed at meta.scene_duration (10.0s).",
+  "meta": {
+    "video_id": "",
+    "title": "",
+    "status": "draft",
+    "output": "final.mp4",
+    "scene_duration": 10.0,
+    "transition_duration": 0.5,
+    "fps": 25,
+    "width": 1280,
+    "height": 720,
+    "language": "ar-EG"
+  },
+  "brand": {
+    "intro": "brand/intro.mp4",
+    "outro": "brand/outro.mp4",
+    "logo": "brand/logo.png",
+    "music_dir": "brand/music",
+    "sfx_dir": "brand/sfx",
+    "footage_dir": "brand/footage"
+  },
+  "audio": {
+    "music_volume": 0.16,
+    "target_lufs": -14,
+    "voice_reference": "",
+    "max_voice_tempo": 1.15
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "narration": "",
+      "visual_prompt": "ENGLISH image prompt goes here",
+      "visual": ".build/scenes/scene-01.jpg",
+      "audio": ".build/audio/scene-01.mp3",
+      "move": "zoom-in",
+      "transition": "fade",
+      "sfx": "whoosh"
+    }
+  ]
+}
