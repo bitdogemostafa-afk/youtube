@@ -1,5 +1,5 @@
 {
-  "_README": "Production plan for the current video. Source of truth for build_video.py. Scene durations are fixed at meta.scene_duration (10.0s).",
+  "_README": "Production plan — THE BATON. Every employee reads this file, updates ONLY their section, saves it, and hands it to the next employee: researcher -> fact-checker -> scriptwriter -> language-editor -> voiceover-artist -> thumbnail-designer -> seo-manager -> audio-mixer -> video-editor -> publisher -> data-analyst. Scenes are EXACTLY meta.scene_duration (10.0s); each scene is VIDEO footage (brand/footage/) or at most TWO still images.",
   "meta": {
     "video_id": "",
     "title": "",
@@ -10,7 +10,8 @@
     "fps": 25,
     "width": 1280,
     "height": 720,
-    "language": "ar-EG"
+    "language": "ar-EG",
+    "total_duration_sec": null
   },
   "brand": {
     "intro": "brand/intro.mp4",
@@ -20,22 +21,67 @@
     "sfx_dir": "brand/sfx",
     "footage_dir": "brand/footage"
   },
-  "audio": {
-    "music_volume": 0.16,
-    "target_lufs": -14,
-    "voice_reference": "",
-    "max_voice_tempo": 1.15
+  "research": {
+    "topic": "",
+    "angle": "",
+    "facts": [
+      {"fact": "", "why_surprising": "", "source": "", "confidence": "", "verdict": ""}
+    ],
+    "competitive_study": [
+      {"channel": "", "hook": "", "structure": "", "strengths": "", "gaps": ""}
+    ],
+    "hook_candidates": [
+      {"hook": "", "style": "", "rank": 1}
+    ]
+  },
+  "fact_check": {
+    "verified_by": "",
+    "notes": "",
+    "citations": []
+  },
+  "script": {
+    "hook_narration": "",
+    "outro_narration": "",
+    "cta": ""
   },
   "scenes": [
     {
       "id": 1,
       "narration": "",
-      "visual_prompt": "ENGLISH image prompt goes here",
-      "visual": ".build/scenes/scene-01.jpg",
+      "footage": "brand/footage/scene-01.mp4",
+      "visual_prompt": "ENGLISH image prompt — fallback still (max 2 stills per scene)",
+      "visuals": [".build/scenes/scene-01a.jpg", ".build/scenes/scene-01b.jpg"],
       "audio": ".build/audio/scene-01.mp3",
       "move": "zoom-in",
+      "move_b": "zoom-out",
       "transition": "fade",
+      "intra_transition": "fade",
       "sfx": "whoosh"
     }
-  ]
+  ],
+  "audio": {
+    "music_volume": 0.16,
+    "target_lufs": -14,
+    "voice_reference": "voice-02",
+    "max_voice_tempo": 1.15
+  },
+  "thumbnail": {
+    "concept": "",
+    "prompt": "ENGLISH image prompt (no text inside the image)",
+    "text_ar": "",
+    "file": "thumbnail.jpg"
+  },
+  "metadata": {
+    "title": "",
+    "description": "",
+    "tags": [],
+    "chapters": []
+  },
+  "analytics": {
+    "ctr": null,
+    "avd_percent": null,
+    "diagnosis": "",
+    "next_actions": []
+  },
+  "history": []
 }

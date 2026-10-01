@@ -25,3 +25,14 @@ Deliver a voiceover that carries suspense, mystery, and authority — synced to 
 - [ ] Delivery is dramatic: pace varies, pauses land, no monotone.
 - [ ] No clipped first/last syllables.
 - [ ] Arabic pronunciation is clean (no mangled scientific terms — reword if the voice chokes).
+
+## Handover — the JSON baton
+`video.json` (repo root) is the single source of truth that travels down the pipeline.
+
+1. **READ** `video.json` first — it holds every previous employee's work. Never start from scratch.
+2. **UPDATE only your section** (below). Leave the other employees' sections untouched.
+3. **SAVE** `video.json` and hand it to the next employee:
+   `researcher → fact-checker → scriptwriter → language-editor → voiceover-artist → thumbnail-designer → seo-manager → audio-mixer → video-editor → publisher → data-analyst`
+
+### Your JSON section
+`scenes[].audio` (paths to the generated clips) + `audio.voice_reference` (the approved voice id).

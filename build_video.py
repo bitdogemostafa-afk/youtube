@@ -9,7 +9,9 @@ Reads the production plan (default: ./video.json) and writes final.mp4.
 
 Enforced rules:
   * every scene is EXACTLY meta.scene_duration seconds (default 10.0)
-  * real transitions between segments (xfade crossfade, default 0.5s)
+  * every scene is VIDEO: real footage clip (brand/footage/) preferred,
+    otherwise at most TWO still images (5.25s each + 0.5s mini crossfade)
+  * real transitions between scenes (xfade crossfade, default 0.5s)
   * per-scene voiceover fitted (edge-silence trim + atempo <= max_voice_tempo)
   * music bed with sidechain ducking under the voice (looped to full length)
   * whoosh SFX at every transition + riser under the hook
@@ -30,6 +32,8 @@ BUILD = os.path.join(REPO, ".build")
 SEG_DIR = os.path.join(BUILD, "segments")
 
 GRADE = "eq=contrast=1.06:saturation=1.12"
+MINI_XFADE = 0.5
+MAX_STILLS_PER_SCENE = 2
 
 XFADE_MAP = {
     "crossfade": "fade", "fade": "fade", "fadeblack": "fadeblack",
@@ -112,9 +116,9 @@ def find_sfx(sfx_dir, *keywords):
     return None
 
 
-def build_segment(ffmpeg, idx, visual, dur, w, h, fps, move="zoom-in"):
+def build_segment(ffmpeg, label, visual, dur, w, h, fps, move="zoom-in"):
     """Normalise one visual into a silent segment of exactly `dur` seconds."""
-    out = os.path.join(SEG_DIR, f"seg-{idx:03d}.mp4")
+    out = os.path.join(SEG_DIR, f"seg-{label}.mp4")
     ext = os.path.splitext(visual)[1].lower()
     if ext in (".jpg", ".jpeg", ".png", ".webp", ".bmp"):
         frames = max(1, int(round(dur * fps)))
@@ -145,7 +149,54 @@ def build_segment(ffmpeg, idx, visual, dur, w, h, fps, move="zoom-in"):
         cmd = [ffmpeg, "-y"] + pre + ["-i", visual, "-vf", vf,
                "-t", f"{dur:.3f}", "-an", "-c:v", "libx264",
                "-preset", "veryfast", "-pix_fmt", "yuv420p", "-r", str(fps), out]
-    run(cmd, f"segment {idx}: {os.path.basename(visual)} -> {dur:.1f}s")
+    run(cmd, f"segment {label}: {os.path.basename(visual)} -> {dur:.2f}s")
+    return out
+
+
+def build_scene_segment(ffmpeg, label, sc, dur, w, h, fps):
+    """Build ONE scene segment of exactly `dur` seconds.
+
+    Source priority:
+      1. real footage clip (brand/footage/...)  -> trimmed to dur
+      2. up to TWO still images                 -> dur/2 each + mini crossfade
+      3. a single still image                   -> Ken Burns for dur
+    """
+    out = os.path.join(SEG_DIR, f"seg-{label}.mp4")
+    sid = sc.get("id", label)
+
+    footage = sc.get("footage")
+    if footage and os.path.exists(footage):
+        return build_segment(ffmpeg, label, footage, dur, w, h, fps, "static")
+
+    visuals = list(sc.get("visuals") or [])
+    if not visuals and sc.get("visual"):
+        visuals = [sc["visual"]]
+    visuals = [v for v in visuals if v and os.path.exists(v)]
+    if not visuals:
+        sys.exit(f"ERROR: scene {sid}: no footage and no visuals.\n"
+                 "  -> drop a clip in brand/footage/ or generate at most 2 "
+                 "stills (English prompts) with the video-editor employee.")
+    if len(visuals) > MAX_STILLS_PER_SCENE:
+        sys.exit(f"ERROR: scene {sid}: {len(visuals)} stills — "
+                 f"the maximum is {MAX_STILLS_PER_SCENE} per scene.")
+
+    if len(visuals) == 1:
+        return build_segment(ffmpeg, label, visuals[0], dur, w, h, fps,
+                             sc.get("move", "zoom-in"))
+
+    # two stills: each plays (dur + MINI_XFADE)/2 so the pair totals exactly dur
+    half = (dur + MINI_XFADE) / 2.0
+    a = build_segment(ffmpeg, f"{label}a", visuals[0], half, w, h, fps,
+                      sc.get("move", "zoom-in"))
+    b = build_segment(ffmpeg, f"{label}b", visuals[1], half, w, h, fps,
+                      sc.get("move_b", "zoom-out"))
+    tr = XFADE_MAP.get(str(sc.get("intra_transition", "fade")).lower(), "fade")
+    fc = (f"[0:v][1:v]xfade=transition={tr}:duration={MINI_XFADE}:"
+          f"offset={half - MINI_XFADE:.3f}[v]")
+    cmd = [ffmpeg, "-y", "-i", a, "-i", b, "-filter_complex", fc, "-map", "[v]",
+           "-c:v", "libx264", "-preset", "veryfast", "-pix_fmt", "yuv420p",
+           "-r", str(fps), out]
+    run(cmd, f"scene {sid}: 2 stills -> {dur:.2f}s")
     return out
 
 
@@ -202,16 +253,12 @@ def main():
         entries.append({"kind": "intro", "visual": intro,
                         "dur": probe_duration(ffmpeg, intro), "move": "static"})
     for i, sc in enumerate(scenes, 1):
-        v = sc.get("visual")
-        if not v or not os.path.exists(v):
-            sys.exit(f"ERROR: scene {i} has no visual file: {v}\n"
-                     "-> run the video-editor employee to generate scene visuals first.")
         a = sc.get("audio")
         if not a or not os.path.exists(a):
             sys.exit(f"ERROR: scene {i} has no audio file: {a}\n"
                      "-> run the voiceover-artist employee first.")
-        entries.append({"kind": "scene", "n": i, "visual": v, "dur": sdur,
-                        "move": sc.get("move", "zoom-in"), "audio": a,
+        entries.append({"kind": "scene", "n": i, "dur": sdur,
+                        "audio": a, "move": sc.get("move", "zoom-in"),
                         "transition": sc.get("transition", "fade")})
     outro = brand.get("outro")
     if outro and os.path.exists(outro):
@@ -227,8 +274,12 @@ def main():
     print("== building segments ==")
     segs = []
     for i, e in enumerate(entries):
-        e["seg"] = build_segment(ffmpeg, i, e["visual"], e["dur"], w, h, fps,
-                                 e.get("move", "zoom-in"))
+        if e["kind"] == "scene":
+            e["seg"] = build_scene_segment(ffmpeg, f"{i:03d}", scenes[e["n"] - 1],
+                                           e["dur"], w, h, fps)
+        else:
+            e["seg"] = build_segment(ffmpeg, f"{i:03d}", e["visual"], e["dur"],
+                                     w, h, fps, e.get("move", "static"))
         segs.append(e["seg"])
     for i, e in enumerate(entries):
         e["start"] = 0.0 if i == 0 else entries[i - 1]["start"] + entries[i - 1]["dur"] - xfade
@@ -368,8 +419,19 @@ def main():
     print(f"output   : {out_path}")
     print(f"duration : {total:.2f}s  ({n_scenes} scenes x {sdur}s)")
     for e in entries:
-        tag = f"scene-{e['n']:02d}" if e["kind"] == "scene" else e["kind"].upper()
-        print(f"  {e['start']:7.2f}s  {tag:10s} {os.path.basename(e['visual'])}")
+        if e["kind"] == "scene":
+            sc = scenes[e["n"] - 1]
+            tag = f"scene-{e['n']:02d}"
+            if sc.get("footage") and os.path.exists(sc["footage"]):
+                src = f"footage: {os.path.basename(sc['footage'])}"
+            else:
+                vs = [os.path.basename(v) for v in
+                      (sc.get("visuals") or ([sc["visual"]] if sc.get("visual") else []))]
+                src = "stills: " + " + ".join(vs)
+        else:
+            tag = e["kind"].upper()
+            src = os.path.basename(e["visual"])
+        print(f"  {e['start']:7.2f}s  {tag:10s} {src}")
 
 
 if __name__ == "__main__":

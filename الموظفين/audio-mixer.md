@@ -23,3 +23,14 @@ Mix settings recorded in `video.json` (`audio` block) + any generated placeholde
 - [ ] Voice intelligible at all times (music never masks it).
 - [ ] Every transition has a whoosh.
 - [ ] Loudness measured (loudnorm print_format=json) and within target.
+
+## Handover — the JSON baton
+`video.json` (repo root) is the single source of truth that travels down the pipeline.
+
+1. **READ** `video.json` first — it holds every previous employee's work. Never start from scratch.
+2. **UPDATE only your section** (below). Leave the other employees' sections untouched.
+3. **SAVE** `video.json` and hand it to the next employee:
+   `researcher → fact-checker → scriptwriter → language-editor → voiceover-artist → thumbnail-designer → seo-manager → audio-mixer → video-editor → publisher → data-analyst`
+
+### Your JSON section
+`audio.*` (music_volume, sfx choices, voice_reference) — and confirm the assets exist in `brand/music/` and `brand/sfx/`.

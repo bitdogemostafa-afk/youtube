@@ -22,3 +22,14 @@ Ship only when the video is actually good.
 2. Present the final video + metadata to the producer.
 3. On approval: upload to YouTube as unlisted first, verify, then set public.
 4. Record the URL in `video.json` history.
+
+## Handover — the JSON baton
+`video.json` (repo root) is the single source of truth passed down the pipeline.
+
+1. **READ** `video.json` first — it holds every previous employee's work. Never start from scratch.
+2. **UPDATE only your section** (below). Leave the other employees' sections untouched.
+3. **SAVE** `video.json` and hand it to the next employee:
+   `researcher → fact-checker → scriptwriter → language-editor → voiceover-artist → thumbnail-designer → seo-manager → audio-mixer → video-editor → publisher → data-analyst`
+
+### Your JSON section
+`meta.status = "published"` + `meta.output` + append the publish entry to `history[]`.

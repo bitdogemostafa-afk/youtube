@@ -22,3 +22,14 @@ Make the script sound like a premium documentary narrator speaking warm Egyptian
 - [ ] Zero filler, zero tongue-twisters.
 - [ ] Consistent voice/tone across all scenes.
 - [ ] Scientific terms are correct AND understandable.
+
+## Handover — the JSON baton
+`video.json` (repo root) is the single source of truth that travels down the pipeline.
+
+1. **READ** `video.json` first — it holds every previous employee's work. Never start from scratch.
+2. **UPDATE only your section** (below). Leave the other employees' sections untouched.
+3. **SAVE** `video.json` and hand it to the next employee:
+   `researcher → fact-checker → scriptwriter → language-editor → voiceover-artist → thumbnail-designer → seo-manager → audio-mixer → video-editor → publisher → data-analyst`
+
+### Your JSON section
+`scenes[].narration` — polish in place, same structure and word budget.

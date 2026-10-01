@@ -40,3 +40,14 @@ Give every downstream employee surprising, well-sourced, retention-ready materia
 - نضال قسوم (Nidhal Guessoum) — calm, rigorous science
 - متع عقلك — short, curiosity-driven, zero boredom
 - Zack D. Films / Vsauce style — one irresistible question per video
+
+## Handover — the JSON baton
+`video.json` (repo root) is the single source of truth that travels down the pipeline.
+
+1. **READ** `video.json` first — it holds every previous employee's work. Never start from scratch.
+2. **UPDATE only your section** (below). Leave the other employees' sections untouched.
+3. **SAVE** `video.json` and hand it to the next employee:
+   `researcher → fact-checker → scriptwriter → language-editor → voiceover-artist → thumbnail-designer → seo-manager → audio-mixer → video-editor → publisher → data-analyst`
+
+### Your JSON section
+`research.*` — topic, angle, facts (with source + confidence), competitive_study, hook_candidates. Visual ideas in the facts table must describe **video footage** (what the clip shows), written in English, because scenes are video-first.

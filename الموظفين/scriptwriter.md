@@ -35,3 +35,14 @@ Write a dramatic, suspenseful, scientifically deep script in Egyptian Arabic whe
 - [ ] A pattern interrupt exists at least every 90 seconds.
 - [ ] Reading it aloud feels like a story, not a lesson.
 - [ ] Compare against the competitive study: is our hook stronger than الدحيح/يوريكا شو style hooks? If not, rewrite.
+
+## Handover — the JSON baton
+`video.json` (repo root) is the single source of truth that travels down the pipeline.
+
+1. **READ** `video.json` first — it holds every previous employee's work. Never start from scratch.
+2. **UPDATE only your section** (below). Leave the other employees' sections untouched.
+3. **SAVE** `video.json` and hand it to the next employee:
+   `researcher → fact-checker → scriptwriter → language-editor → voiceover-artist → thumbnail-designer → seo-manager → audio-mixer → video-editor → publisher → data-analyst`
+
+### Your JSON section
+`scenes[].narration` + `script.*` (hook_narration, outro_narration, cta). The Visual note column describes **video footage** in English (what the clip shows) — scenes are video-first, stills are the fallback.
