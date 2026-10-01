@@ -9,8 +9,9 @@ Reads the production plan (default: ./video.json) and writes final.mp4.
 
 Enforced rules:
   * every scene is EXACTLY meta.scene_duration seconds (default 10.0)
-  * every scene is VIDEO: real footage clip (brand/footage/) preferred,
-    otherwise at most TWO still images (5.25s each + 0.5s mini crossfade)
+  * every scene is VIDEO footage (brand/footage/ from pexels/pixabay/unsplash)
+    EXCEPT at most STILL_SCENE_LIMIT scenes that use still images
+    (at most 2 stills per still scene: 5.25s each + 0.5s mini crossfade)
   * real transitions between scenes (xfade crossfade, default 0.5s)
   * per-scene voiceover fitted (edge-silence trim + atempo <= max_voice_tempo)
   * music bed with sidechain ducking under the voice (looped to full length)
@@ -34,6 +35,7 @@ SEG_DIR = os.path.join(BUILD, "segments")
 GRADE = "eq=contrast=1.06:saturation=1.12"
 MINI_XFADE = 0.5
 MAX_STILLS_PER_SCENE = 2
+STILL_SCENE_LIMIT = 2
 
 XFADE_MAP = {
     "crossfade": "fade", "fade": "fade", "fadeblack": "fadeblack",
@@ -116,6 +118,25 @@ def find_sfx(sfx_dir, *keywords):
     return None
 
 
+def footage_gate(scenes):
+    """Every scene must be footage, except at most STILL_SCENE_LIMIT scenes."""
+    no_footage = [sc for sc in scenes
+                  if not (sc.get("footage") and os.path.exists(sc["footage"]))]
+    if len(no_footage) > STILL_SCENE_LIMIT:
+        print("!! footage shopping list — download these clips into brand/footage/:")
+        for sc in no_footage:
+            default = os.path.join("brand", "footage",
+                                   f"scene-{sc.get('id', 0):02d}.mp4")
+            print(f"   scene {sc.get('id')}: {sc.get('footage', default)}"
+                  f"  | search ({sc.get('footage_source', 'pexels')}): "
+                  f"{sc.get('footage_query', '(no query in video.json)')}")
+        sys.exit(f"ERROR: {len(no_footage)} scenes have no footage — "
+                 f"only {STILL_SCENE_LIMIT} scenes may use still images.")
+    if no_footage:
+        ids = ", ".join(str(sc.get("id")) for sc in no_footage)
+        print(f"== still scenes ({len(no_footage)}/{STILL_SCENE_LIMIT}): {ids}")
+
+
 def build_segment(ffmpeg, label, visual, dur, w, h, fps, move="zoom-in"):
     """Normalise one visual into a silent segment of exactly `dur` seconds."""
     out = os.path.join(SEG_DIR, f"seg-{label}.mp4")
@@ -157,9 +178,9 @@ def build_scene_segment(ffmpeg, label, sc, dur, w, h, fps):
     """Build ONE scene segment of exactly `dur` seconds.
 
     Source priority:
-      1. real footage clip (brand/footage/...)  -> trimmed to dur
-      2. up to TWO still images                 -> dur/2 each + mini crossfade
-      3. a single still image                   -> Ken Burns for dur
+      1. real footage clip (brand/footage/)   -> trimmed to dur
+      2. up to TWO still images               -> dur/2 each + mini crossfade
+      3. a single still image                 -> Ken Burns for dur
     """
     out = os.path.join(SEG_DIR, f"seg-{label}.mp4")
     sid = sc.get("id", label)
@@ -245,6 +266,9 @@ def main():
     max_tempo = float(audio_cfg.get("max_voice_tempo", 1.15))
 
     os.makedirs(SEG_DIR, exist_ok=True)
+
+    # ---------------- footage gate (military order) ----------------
+    footage_gate(scenes)
 
     # ---------------- collect segments ----------------
     entries = []
@@ -415,9 +439,12 @@ def main():
 
     # ---------------- report ----------------
     n_scenes = len([e for e in entries if e["kind"] == "scene"])
+    n_still = len([sc for sc in scenes
+                   if not (sc.get("footage") and os.path.exists(sc["footage"]))])
     print("\n== done ==")
     print(f"output   : {out_path}")
-    print(f"duration : {total:.2f}s  ({n_scenes} scenes x {sdur}s)")
+    print(f"duration : {total:.2f}s  ({n_scenes} scenes x {sdur}s, "
+          f"{n_still} still scene(s) of max {STILL_SCENE_LIMIT})")
     for e in entries:
         if e["kind"] == "scene":
             sc = scenes[e["n"] - 1]

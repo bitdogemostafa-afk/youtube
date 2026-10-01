@@ -26,6 +26,13 @@ Deliver a voiceover that carries suspense, mystery, and authority — synced to 
 - [ ] No clipped first/last syllables.
 - [ ] Arabic pronunciation is clean (no mangled scientific terms — reword if the voice chokes).
 
+## Delivery standard — professional mystery narration
+- Read like a documentary mystery narrator: calm authority, controlled curiosity, never salesy.
+- Land the pauses: `...` gets a full beat; the mystery question drops in pace; the answer arrives with certainty.
+- Never rush. If a clip exceeds 10s, the wording gets tightened — the voice is never sped up above `audio.max_voice_tempo` (1.15x).
+- Numbers and scientific terms get extra weight and clarity.
+- The voice leads the picture: every sentence must land on the matching footage second.
+
 ## Handover — the JSON baton
 `video.json` (repo root) is the single source of truth that travels down the pipeline.
 

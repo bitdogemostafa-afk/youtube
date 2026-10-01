@@ -1,5 +1,5 @@
 {
-  "_README": "Production plan — THE BATON. Every employee reads this file, updates ONLY their section, saves it, and hands it to the next employee: researcher -> fact-checker -> scriptwriter -> language-editor -> voiceover-artist -> thumbnail-designer -> seo-manager -> audio-mixer -> video-editor -> publisher -> data-analyst. Scenes are EXACTLY meta.scene_duration (10.0s); each scene is VIDEO footage (brand/footage/) or at most TWO still images.",
+  "_README": "Production plan — THE BATON. Every employee reads this file, updates ONLY their section, saves it, and hands it to the next employee: researcher -> fact-checker -> scriptwriter -> language-editor -> voiceover-artist -> thumbnail-designer -> seo-manager -> audio-mixer -> video-editor -> publisher -> data-analyst. Scenes are EXACTLY meta.scene_duration (10.0s). EVERY scene is VIDEO footage from pexels/pixabay/unsplash (scenes[].footage) EXCEPT at most TWO still scenes (scenes[].visuals, max 2 stills each). Every clip must show exactly what the narration says. The audio mix (voice + music + SFX) is fully driven by the audio block.",
   "meta": {
     "video_id": "",
     "title": "",
@@ -40,6 +40,7 @@
     "citations": []
   },
   "script": {
+    "central_mystery": "",
     "hook_narration": "",
     "outro_narration": "",
     "cta": ""
@@ -48,8 +49,10 @@
     {
       "id": 1,
       "narration": "",
+      "footage_query": "blue sky sun rays clouds timelapse",
+      "footage_source": "pexels",
       "footage": "brand/footage/scene-01.mp4",
-      "visual_prompt": "ENGLISH image prompt — fallback still (max 2 stills per scene)",
+      "visual_prompt": "ENGLISH image prompt — only for the (max 2) still scenes",
       "visuals": [".build/scenes/scene-01a.jpg", ".build/scenes/scene-01b.jpg"],
       "audio": ".build/audio/scene-01.mp3",
       "move": "zoom-in",
@@ -63,7 +66,12 @@
     "music_volume": 0.16,
     "target_lufs": -14,
     "voice_reference": "voice-02",
-    "max_voice_tempo": 1.15
+    "max_voice_tempo": 1.15,
+    "whoosh_level": 0.45,
+    "riser_level": 0.35,
+    "impact_level": 0.5,
+    "duck_threshold": 0.03,
+    "duck_ratio": 6
   },
   "thumbnail": {
     "concept": "",

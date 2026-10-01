@@ -36,6 +36,12 @@ Write a dramatic, suspenseful, scientifically deep script in Egyptian Arabic whe
 - [ ] Reading it aloud feels like a story, not a lesson.
 - [ ] Compare against the competitive study: is our hook stronger than الدحيح/يوريكا شو style hooks? If not, rewrite.
 
+## Mystery style — mandatory (أسلوب الغموض والرد على الغموض)
+- The video poses ONE central mystery in the hook and answers it only at the very end.
+- Every scene opens a small mystery loop and closes the previous one — the viewer is always exactly one answer behind.
+- Professional, precise language: no slang filler, no hype words ("هتصدم"، "مستحيل"، "لن تصدق") — facts delivered with weight and certainty.
+- The narration is the master: every visual must show exactly what the words say at that second — so the Visual note column describes the exact footage to search for, in English (the video-editor turns it into `footage_query`).
+
 ## Handover — the JSON baton
 `video.json` (repo root) is the single source of truth that travels down the pipeline.
 
