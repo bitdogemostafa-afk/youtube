@@ -498,7 +498,12 @@ def main():
     else:
         fc.append(f"{mix_inputs[0]}anull[premix]")
     fc.append(f"[premix]loudnorm=I={lufs}:TP=-1.5:LRA=11,"
-              f"atrim=0:{total:.3f},asetpts=N/SR/TB,aresample=48000[aout]")
+              f"atrim=0:{total:.3f},"
+              # loudnorm can land a few frames short of the slot; without the
+              # pad, -shortest below would trim the video to match and the
+              # deliverable would come out at 598.90s instead of 599.00s
+              f"apad=whole_dur={total:.3f},"
+              f"asetpts=N/SR/TB,aresample=48000[aout]")
 
     cmd = [ffmpeg, "-y"] + a_inputs + ["-i", chain] + [
         "-filter_complex", ";".join(fc),

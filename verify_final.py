@@ -78,7 +78,7 @@ def main():
 
     # ---- expected timeline ------------------------------------------------
     sd = meta["scene_duration"]
-    xf = meta["transition"]
+    xf = meta["transition_duration"]
     expected = round(len(scenes) * sd - (len(scenes) - 1) * xf, 3)
     print(f"\n[timeline] expected     : {expected}s "
           f"({len(scenes)} x {sd}s - {len(scenes)-1} x {xf}s)")
