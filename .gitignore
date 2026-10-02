@@ -12,3 +12,6 @@ __pycache__/
 # placeholder audio synthesised by make_music.py (replace with real tracks)
 brand/music/placeholder-*.wav
 brand/sfx/placeholder-*.wav
+
+# Pexels API key — never commit this
+brand/pexels_key.txt
