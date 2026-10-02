@@ -898,6 +898,10 @@
   {
    "stage": "scriptwriter + language-editor",
    "note": "timing pass: voice-02 clips measured 10.8-13.9s raw vs 10.0s slot (voice_filter trims to slot after atempo<=1.15 -> tails were being cut). Rewrote all 63 narrations to <=20 words and <=3 dramatic pauses (target raw <=11.0s). Arc, facts, hook/CTA and footage_query kept identical."
+  },
+  {
+   "stage": "thumbnail-designer",
+   "note": "thumbnail.jpg 1280x720: AI background (face in rain/mist, dark storm, high contrast) + Arabic title «ريحة المطر» burned via libass (ffmpeg drawtext is NOT in the bundled build; the `subtitles` filter + Amiri-Bold from google/fonts via api.github.com gives proper RTL shaping). Kicker line taken from the title: «اللغز اللي البكتيريا عملته». Tool: make_thumbnail.py (re-runnable)."
   }
  ]
 }
