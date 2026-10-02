@@ -213,3 +213,5 @@ trimmed ok=61 failed=0
 mp4 after: 61
 263M	brand/footage
 /dev/root       145G   59G   86G  41% /
+=== stage: commit 18:30:03 ===
+mp4 to commit: 61
