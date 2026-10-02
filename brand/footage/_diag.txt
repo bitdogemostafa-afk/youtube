@@ -215,3 +215,71 @@ mp4 after: 61
 /dev/root       145G   59G   86G  41% /
 === stage: commit 18:30:03 ===
 mp4 to commit: 61
+staged 62 files
+[footage-cache a84fa12] footage: 61 clips trimmed to 10s @1080p
+ 62 files changed, 2 insertions(+)
+ create mode 100644 brand/footage/scene-01.mp4
+ create mode 100644 brand/footage/scene-02.mp4
+ create mode 100644 brand/footage/scene-03.mp4
+ create mode 100644 brand/footage/scene-04.mp4
+ create mode 100644 brand/footage/scene-05.mp4
+ create mode 100644 brand/footage/scene-06.mp4
+ create mode 100644 brand/footage/scene-07.mp4
+ create mode 100644 brand/footage/scene-08.mp4
+ create mode 100644 brand/footage/scene-09.mp4
+ create mode 100644 brand/footage/scene-10.mp4
+ create mode 100644 brand/footage/scene-12.mp4
+ create mode 100644 brand/footage/scene-13.mp4
+ create mode 100644 brand/footage/scene-14.mp4
+ create mode 100644 brand/footage/scene-15.mp4
+ create mode 100644 brand/footage/scene-16.mp4
+ create mode 100644 brand/footage/scene-17.mp4
+ create mode 100644 brand/footage/scene-18.mp4
+ create mode 100644 brand/footage/scene-19.mp4
+ create mode 100644 brand/footage/scene-20.mp4
+ create mode 100644 brand/footage/scene-21.mp4
+ create mode 100644 brand/footage/scene-22.mp4
+ create mode 100644 brand/footage/scene-23.mp4
+ create mode 100644 brand/footage/scene-24.mp4
+ create mode 100644 brand/footage/scene-25.mp4
+ create mode 100644 brand/footage/scene-26.mp4
+ create mode 100644 brand/footage/scene-27.mp4
+ create mode 100644 brand/footage/scene-28.mp4
+ create mode 100644 brand/footage/scene-29.mp4
+ create mode 100644 brand/footage/scene-30.mp4
+ create mode 100644 brand/footage/scene-31.mp4
+ create mode 100644 brand/footage/scene-32.mp4
+ create mode 100644 brand/footage/scene-33.mp4
+ create mode 100644 brand/footage/scene-34.mp4
+ create mode 100644 brand/footage/scene-35.mp4
+ create mode 100644 brand/footage/scene-36.mp4
+ create mode 100644 brand/footage/scene-37.mp4
+ create mode 100644 brand/footage/scene-38.mp4
+ create mode 100644 brand/footage/scene-39.mp4
+ create mode 100644 brand/footage/scene-40.mp4
+ create mode 100644 brand/footage/scene-41.mp4
+ create mode 100644 brand/footage/scene-42.mp4
+ create mode 100644 brand/footage/scene-43.mp4
+ create mode 100644 brand/footage/scene-44.mp4
+ create mode 100644 brand/footage/scene-45.mp4
+ create mode 100644 brand/footage/scene-46.mp4
+ create mode 100644 brand/footage/scene-47.mp4
+ create mode 100644 brand/footage/scene-48.mp4
+ create mode 100644 brand/footage/scene-49.mp4
+ create mode 100644 brand/footage/scene-50.mp4
+ create mode 100644 brand/footage/scene-51.mp4
+ create mode 100644 brand/footage/scene-52.mp4
+ create mode 100644 brand/footage/scene-54.mp4
+ create mode 100644 brand/footage/scene-55.mp4
+ create mode 100644 brand/footage/scene-56.mp4
+ create mode 100644 brand/footage/scene-57.mp4
+ create mode 100644 brand/footage/scene-58.mp4
+ create mode 100644 brand/footage/scene-59.mp4
+ create mode 100644 brand/footage/scene-60.mp4
+ create mode 100644 brand/footage/scene-61.mp4
+ create mode 100644 brand/footage/scene-62.mp4
+ create mode 100644 brand/footage/scene-63.mp4
+commit rc=0
+To https://github.com/bitdogemostafa-afk/youtube
+   6f70a5f..a84fa12  footage-cache -> footage-cache
+push rc=0
