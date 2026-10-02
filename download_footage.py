@@ -264,6 +264,7 @@ def main():
             continue
 
         results, used = [], None
+        any_hits, any_query = [], None
         for variant in query_variants(query):
             try:
                 results = search_fn(variant, key, args.per_page)
@@ -272,6 +273,8 @@ def main():
             except Exception as e:
                 print("      search error: %s" % e)
                 results = []
+            if results and not any_hits:
+                any_hits, any_query = results, variant
             if results and relevance(choose(results, variant), variant) > 0:
                 used = variant
                 break
@@ -281,9 +284,15 @@ def main():
             time.sleep(0.7)
 
         if not results:
-            failed.append((sid, "no on-topic results for %r" % query))
-            print("      !! no on-topic results")
-            continue
+            # nothing matched a query word: keep the best raw hit rather than
+            # dropping the scene, and say so loudly in the audit trail
+            if any_hits:
+                results, used = any_hits, any_query
+                print("      !! no on-topic hit, falling back to %r" % any_query)
+            else:
+                failed.append((sid, "no on-topic results for %r" % query))
+                print("      !! no on-topic results")
+                continue
 
         best = choose(results, used)
         rel = relevance(best, used)

@@ -1,0 +1,285 @@
+=== stage: download 16:45:29 ===
+pwd=/home/runner/work/youtube/youtube
+probe HTTP=200 keylen=34
+provider: pixabay   key: 578371...c9f0 (34 chars)
+[ 1/61] scene 01  man standing looking up at dark storm clouds gathering sky
+      relevance 4/8 | tags: darkness, dark clouds, weather, air, storm, stormy sky, cloudy, atmosp
+      -> 1920x1080  21.5 MB  (id 2106)
+[ 2/61] scene 02  rain drops falling on dry cracked soil close up macro
+      relevance 4/8 | tags: leaves, foliage, plant, dewdrops, outdoors, environment, peaceful, wat
+      -> 3840x2160  119.4 MB  (id 217712)
+[ 3/61] scene 03  dry earth texture cracks warm sunlight close up
+      relevance 3/7 | tags: farfalle, pasta, raw, carbohydrate, texture, closeup, food, ingredient
+      -> 4096x2160  25.6 MB  (id 153457)
+[ 4/61] scene 04  aerial view flying over dry barren landscape soil
+      relevance 5/8 | tags: round hay bales, flying over, countryside, agriculture, farmland, rura
+      -> 3840x2160  40.8 MB  (id 168271)
+[ 5/61] scene 05  vintage scientists writing research paper at desk
+      relevance 3/6 | tags: students, books, papers, text, study, studying, library, research, aca
+      -> 1920x1080  21.7 MB  (id 159029)
+[ 6/61] scene 06  old vintage nature science journal pages close up
+      relevance 3/7 | tags: book, paper, old, pages, antique, vintage, wood, retro, bible, literat
+      -> 3412x1439  5.3 MB  (id 207982)
+[ 7/61] scene 07  ancient greek stone temple ruins texture close up
+      relevance 4/7 | tags: zeus, greek, god, statue, athens, greece, olympia, enemy, monument, hi
+      -> 1920x1080  7.4 MB  (id 30096)
+[ 8/61] scene 08  hands digging dark soil close up macro
+      relevance 3/6 | tags: ink, bubbles, drops, abstract, colours, pattern, food colouring, vinta
+      -> 3840x2160  101.6 MB  (id 183136)
+[ 9/61] scene 09  microscopic filamentous bacteria animation dark background
+      relevance 3/6 | tags: air bubbles, underwater, water, deep sea, sea, ocean, bubble, black ba
+      -> 1920x1080  15.8 MB  (id 31611)
+[10/61] scene 10  soil cross section layers underground dark macro
+      relevance 2/7 | tags: cave, stalactite, stalagmites, underground, caves, cavities, humid, da
+      -> 1920x1080  20.0 MB  (id 64745)
+[11/61] scene 12  bacterial spores abstract animation glowing dark
+      relevance 2/6 | tags: nature, cabin, forest, night, dark, fireflies, particles, glowing, lig
+      -> 1920x1080  21.4 MB  (id 113732)
+[12/61] scene 13  dry soil surface heat shimmer waiting for rain
+      relevance 3/8 | tags: flames, dramatic, chaos, fire, hot, heat, burning, nature, hell, fores
+      -> 3840x2160  180.7 MB  (id 217738)
+[13/61] scene 14  single raindrop falling slow motion dark background
+      relevance 4/7 | tags: snow, snowfall, snowflakes, snowflake, winter, winter snow, night, sno
+      -> 1920x1080  3.9 MB  (id 9999)
+[14/61] scene 15  raindrop impact dry soil slow motion extreme macro
+      relevance 3/8 | tags: raindrop, rain, water, lake, rainy weather, drops, wet, raindrops jump
+      -> 1920x1080  31.9 MB  (id 181916)
+[15/61] scene 16  air bubble rising inside water droplet slow motion
+      relevance 4/8 | tags: frog, green, sound bubbles, pond, water, water frog, wildlife, slow mo
+      -> 1920x1080  24.4 MB  (id 164646)
+[16/61] scene 17  high speed camera laboratory water splash research
+      relevance 4/7 | tags: ocean, sea, breaking waves, beach, coast, high angle view, reflections
+      -> 1920x1080  24.8 MB  (id 197823)
+[17/61] scene 18  wind blowing dust particles in sunlight close up
+      relevance 4/6 | tags: red tulips, wind, tulip field, blow, close up, spring, tulip heads, fl
+      -> 1920x1080  11.4 MB  (id 22840)
+[18/61] scene 19  gentle light rain drizzle on green leaves close up
+      relevance 4/7 | tags: leaves, foliage, plant, dewdrops, outdoors, environment, peaceful, wat
+      -> 3840x2160  119.4 MB  (id 217712)
+[19/61] scene 20  heavy rain downpour flooding street city
+      relevance 3/6 | tags: rain, storm, nature, brick, street, beautiful wallpaper, glowing, ligh
+      -> 1920x1080  41.5 MB  (id 122300)
+[20/61] scene 21  first light rain on dry ground at sunrise
+      relevance 2/6 | tags: rain, ground, rainy day, garden, summer
+      -> 1920x1080  83.2 MB  (id 216551)
+[21/61] scene 22  rain stopping clouds clearing sunlight over landscape
+      relevance 4/7 | tags: beach, coast, colorful, evening, horizon, landscape, natural, nature, 
+      -> 3840x2160  60.3 MB  (id 37898)
+[22/61] scene 23  lightning strike storm clouds night sky dramatic
+      relevance 7/7 | tags: storm, lightning bolt, lightning, thunder, thunderstorm, weather, rain
+      -> 1920x1080  3.3 MB  (id 41713)
+[23/61] scene 24  strong wind blowing trees before storm dramatic
+      relevance 4/7 | tags: fall, trees, storm, strong wind, autumn mood, leaves, nature, landscap
+      -> 3840x2160  121.4 MB  (id 92768)
+[24/61] scene 25  storm clouds approaching over landscape timelapse
+      relevance 4/6 | tags: sunrise, clouds, tree, heaven, landscape, mood, scenic, sunlight, law,
+      -> 3840x2160  171.8 MB  (id 30218)
+[25/61] scene 26  human nose profile close up portrait dramatic light
+      relevance 3/7 | tags: cat, pet, portrait, tabby, animal, pets, street, garden, table, beauti
+      -> 3840x2160  95.0 MB  (id 95479)
+[26/61] scene 27  sugar cube dissolving in glass of water macro
+      relevance 3/6 | tags: background, sample, beautiful wallpaper, flooded, rain, textures, wall
+      -> 3840x2160  39.3 MB  (id 16224)
+[27/61] scene 28  great white shark swimming deep ocean cinematic
+      relevance 5/7 | tags: ai generated, shark, underwater, sea, ocean, fish, dangerous, animal, 
+      -> 3840x2160  13.1 MB  (id 360198)
+[28/61] scene 29  african savanna dry season landscape aerial
+      relevance 3/6 | tags: cliff, island, aerial view, nature, landscape, ocean, sea, waves
+      -> 2720x1434  48.1 MB  (id 1890)
+[29/61] scene 30  early humans walking savanna documentary style
+      relevance 3/6 | tags: sunrise, early, morning, nature, forest, man, hiking, walking, alone, 
+      -> 3840x2160  205.2 MB  (id 130985)
+[30/61] scene 31  camel walking desert sand dunes cinematic
+      relevance 3/6 | tags: namibia, sundowner, sunset, africa, landscape, sahara, sand, national 
+      -> 3840x2160  148.2 MB  (id 26085)
+[31/61] scene 32  tiny springtail insect macro on soil
+      relevance 3/5 | tags: bee, oilseed rape, blossom, bloom, field, agriculture, honey, insect, 
+      -> 1920x1080  9.3 MB  (id 37144)
+[32/61] scene 33  scientists setting traps in field research
+      relevance 2/5 | tags: scientist, mars, planet, space, galaxy, universe, cosmos, astronomer, 
+      -> 3840x2160  62.0 MB  (id 127432)
+[33/61] scene 34  small insects attracted to bait macro soil
+      relevance 3/6 | tags: ants, nest, insect, colony, workers, anthill, forest, macro, bite, ant
+      -> 1920x1080  9.0 MB  (id 85671)
+[34/61] scene 35  abstract microbial world animation dark cinematic
+      relevance 3/6 | tags: monochrome, liquid, paint, space, motion paint, macro, abstract, slow,
+      -> 1920x1080  23.8 MB  (id 27806)
+[35/61] scene 36  petri dish bacteria culture laboratory close up
+      relevance 2/6 | tags: dish, wash, that, kitchen, cleaning, food, house, soap, sink, bubbles,
+      -> 3840x2160  98.7 MB  (id 38116)
+[36/61] scene 37  antibiotic medicine pills close up macro
+      relevance 3/5 | tags: health, pain, that, glass, antibiotics, chemical, pill, patient, chemi
+      -> 3840x2160  117.5 MB  (id 38220)
+[37/61] scene 38  fresh beetroot beets on soil close up
+      relevance 3/5 | tags: bee, honey bee, insect, pollen, close up, live wallpaper
+      -> 4096x2160  16.8 MB  (id 30470)
+[38/61] scene 39  luxury perfume bottle close up dark elegant
+      relevance 2/6 | tags: rain, close up, rivulet, close, outdoor, natural, spring, plant, green
+      -> 4096x2160  121.2 MB  (id 8571)
+[39/61] scene 40  perfumer laboratory with ingredients bottles
+      relevance 2/5 | tags: photography, laboratory, studio, shooting, woman, chemistry, equipment
+      -> 0x0  17.4 MB  (id 1307)
+[40/61] scene 41  traditional indian sandalwood oil distillation
+      relevance 2/5 | tags: new year, 2023, celebration, christmas, december, candle, decor, beaut
+      -> 3840x2160  32.2 MB  (id 139153)
+[41/61] scene 42  different soil types clay sand stone texture
+      relevance 2/7 | tags: kefalonia, greece, abandoned, house, hill, trees, stone, wall, texture
+      -> 1080x1920  51.8 MB  (id 241933)
+[42/61] scene 43  middle eastern city street rain aerial cinematic
+      relevance 3/7 | tags: montreal, cityscape, aerial view, city, streets, metropole, canada, me
+      -> 1920x1080  35.1 MB  (id 3149)
+[43/61] scene 44  person watching rain through window nostalgic
+      relevance 2/6 | tags: rain, beautiful wallpaper, window, room, autumn, wallpaper, background
+      -> 3840x2160  174.9 MB  (id 190661)
+[44/61] scene 45  old childhood photos rainy day nostalgic
+      relevance 2/6 | tags: rain, ground, rainy day, garden, summer
+      -> 1920x1080  83.2 MB  (id 216551)
+[45/61] scene 46  rain falling on green plants relief close up
+      relevance 4/6 | tags: rain, weather, nature, water, plant, drops, landscape, trees, green, m
+      -> 1920x1080  41.1 MB  (id 44143)
+[46/61] scene 47  abstract glowing chemical molecules animation dark
+      relevance 2/6 | tags: nature, cabin, forest, night, dark, fireflies, particles, glowing, lig
+      -> 1920x1080  21.4 MB  (id 113732)
+[47/61] scene 48  raindrop explosion slow motion extreme macro
+      relevance 3/6 | tags: raindrop, rain, water, lake, rainy weather, drops, wet, raindrops jump
+      -> 1920x1080  31.9 MB  (id 181916)
+[48/61] scene 49  abstract human sense of smell visualization
+      relevance 2/5 | tags: man, tunnel, zoom, light, rays, fog, mist, human, silhouette, person, 
+      -> 3840x2160  18.2 MB  (id 81498)
+[49/61] scene 50  rain clouds forming timelapse dramatic sky
+      relevance 4/6 | tags: clouds, weather, cloudy, storm, stormy, rain, rainy, raining, overcast
+      -> 3840x2160  69.3 MB  (id 127468)
+[50/61] scene 51  microscopic soil bacteria animation cinematic dark
+      relevance 2/6 | tags: night, city, city lights, lights, blurry, blur, background, backdrop, 
+      -> 3840x2160  23.5 MB  (id 28860)
+[51/61] scene 52  prehistoric ancient earth landscape cinematic
+      relevance 2/5 | tags: great wall, wall, ruins, tower, mountains, summit, peak, trees, sky, f
+      -> 3840x2160  137.1 MB  (id 199127)
+[52/61] scene 54  person smelling wet soil in hands close up
+      relevance 3/6 | tags: girl, heart, gesture, symbol, asian, cheerful, close-up, finger, hand,
+      -> 1920x1080  4.4 MB  (id 129421)
+[53/61] scene 55  close up soil under feet walking on earth
+      relevance 3/6 | tags: walk, slow, legs, feet, shoes, welcome, trainers, pants, trousers, wal
+      -> 1920x1080  2.1 MB  (id 47128)
+[54/61] scene 56  rainbow after rain over landscape cinematic
+      relevance 3/6 | tags: rainbow, summer rain, rainy weather, thunderstorm, clouds, blue hour, 
+      -> 3840x2160  66.5 MB  (id 221682)
+[55/61] scene 57  mysterious deep ocean water surface dark
+      relevance 6/6 | tags: air bubbles, underwater bubbles, bubble column, deep sea, dark water, 
+      -> 1920x1080  7.7 MB  (id 366804)
+[56/61] scene 58  youtube subscribe and like button animation
+      relevance 6/6 | tags: youtube button animation, green screen subscribe button, animated cta 
+      -> 1920x1080  0.2 MB  (id 295041)
+[57/61] scene 59  cinematic aerial rain over green landscape
+      relevance 3/6 | tags: plants, heavy rain, rain, rainy, green, nature, landscape
+      -> 1920x1080  17.1 MB  (id 179362)
+[58/61] scene 60  dry cracked earth waiting for rain close up
+      relevance 3/7 | tags: grass, plant, dry, park, garden, botanical, spring, summer, leaves, wi
+      -> 3840x2160  138.3 MB  (id 197946)
+[59/61] scene 61  abstract dark soil texture close up moody
+      relevance 3/6 | tags: colours, pattern, texture, abstract, macro, close-up
+      -> 1920x1080  48.8 MB  (id 26493)
+[60/61] scene 62  cinematic rain drops on dry soil at sunrise
+      relevance 2/6 | tags: bath, beautiful wallpaper, roses, flowers, candles, relaxation, spa, r
+      -> 3840x2160  83.3 MB  (id 165651)
+[61/61] scene 63  rain falling on window glass evening warm light
+      relevance 4/7 | tags: benches, chairs, water drops, rainy day, rain drops, weather, lights, 
+      -> 3840x2160  44.6 MB  (id 172098)
+
+================================================================
+downloaded : 61
+already had: 0
+failed     : 0
+================================================================
+All footage present. Build with:
+    python3 build_video.py video.json
+exit=0
+--- listing ---
+total 3518472
+drwxr-xr-x 2 runner runner      4096 Oct  2 16:47 .
+drwxr-xr-x 4 runner runner      4096 Oct  2 16:44 ..
+-rw-r--r-- 1 runner runner     17282 Oct  2 16:44 SHOPPING_LIST.md
+-rw-r--r-- 1 runner runner     12754 Oct  2 16:47 _diag.txt
+-rw-r--r-- 1 runner runner  22568709 Oct  2 16:45 scene-01.mp4
+-rw-r--r-- 1 runner runner 125236097 Oct  2 16:45 scene-02.mp4
+-rw-r--r-- 1 runner runner  26875932 Oct  2 16:45 scene-03.mp4
+mp4 count: 61
+3.4G	brand/footage
+/dev/root       145G   62G   83G  43% /
+=== stage: trim 16:47:14 ===
+mp4 before: 61
+3.4G	brand/footage
+trimmed ok=61 failed=0
+mp4 after: 61
+253M	brand/footage
+/dev/root       145G   59G   86G  41% /
+=== stage: commit 16:52:49 ===
+mp4 to commit: 61
+staged 62 files
+[footage-cache 2e49b4c] footage: 61 clips trimmed to 10s @1080p
+ 62 files changed, 2 insertions(+)
+ create mode 100644 brand/footage/scene-01.mp4
+ create mode 100644 brand/footage/scene-02.mp4
+ create mode 100644 brand/footage/scene-03.mp4
+ create mode 100644 brand/footage/scene-04.mp4
+ create mode 100644 brand/footage/scene-05.mp4
+ create mode 100644 brand/footage/scene-06.mp4
+ create mode 100644 brand/footage/scene-07.mp4
+ create mode 100644 brand/footage/scene-08.mp4
+ create mode 100644 brand/footage/scene-09.mp4
+ create mode 100644 brand/footage/scene-10.mp4
+ create mode 100644 brand/footage/scene-12.mp4
+ create mode 100644 brand/footage/scene-13.mp4
+ create mode 100644 brand/footage/scene-14.mp4
+ create mode 100644 brand/footage/scene-15.mp4
+ create mode 100644 brand/footage/scene-16.mp4
+ create mode 100644 brand/footage/scene-17.mp4
+ create mode 100644 brand/footage/scene-18.mp4
+ create mode 100644 brand/footage/scene-19.mp4
+ create mode 100644 brand/footage/scene-20.mp4
+ create mode 100644 brand/footage/scene-21.mp4
+ create mode 100644 brand/footage/scene-22.mp4
+ create mode 100644 brand/footage/scene-23.mp4
+ create mode 100644 brand/footage/scene-24.mp4
+ create mode 100644 brand/footage/scene-25.mp4
+ create mode 100644 brand/footage/scene-26.mp4
+ create mode 100644 brand/footage/scene-27.mp4
+ create mode 100644 brand/footage/scene-28.mp4
+ create mode 100644 brand/footage/scene-29.mp4
+ create mode 100644 brand/footage/scene-30.mp4
+ create mode 100644 brand/footage/scene-31.mp4
+ create mode 100644 brand/footage/scene-32.mp4
+ create mode 100644 brand/footage/scene-33.mp4
+ create mode 100644 brand/footage/scene-34.mp4
+ create mode 100644 brand/footage/scene-35.mp4
+ create mode 100644 brand/footage/scene-36.mp4
+ create mode 100644 brand/footage/scene-37.mp4
+ create mode 100644 brand/footage/scene-38.mp4
+ create mode 100644 brand/footage/scene-39.mp4
+ create mode 100644 brand/footage/scene-40.mp4
+ create mode 100644 brand/footage/scene-41.mp4
+ create mode 100644 brand/footage/scene-42.mp4
+ create mode 100644 brand/footage/scene-43.mp4
+ create mode 100644 brand/footage/scene-44.mp4
+ create mode 100644 brand/footage/scene-45.mp4
+ create mode 100644 brand/footage/scene-46.mp4
+ create mode 100644 brand/footage/scene-47.mp4
+ create mode 100644 brand/footage/scene-48.mp4
+ create mode 100644 brand/footage/scene-49.mp4
+ create mode 100644 brand/footage/scene-50.mp4
+ create mode 100644 brand/footage/scene-51.mp4
+ create mode 100644 brand/footage/scene-52.mp4
+ create mode 100644 brand/footage/scene-54.mp4
+ create mode 100644 brand/footage/scene-55.mp4
+ create mode 100644 brand/footage/scene-56.mp4
+ create mode 100644 brand/footage/scene-57.mp4
+ create mode 100644 brand/footage/scene-58.mp4
+ create mode 100644 brand/footage/scene-59.mp4
+ create mode 100644 brand/footage/scene-60.mp4
+ create mode 100644 brand/footage/scene-61.mp4
+ create mode 100644 brand/footage/scene-62.mp4
+ create mode 100644 brand/footage/scene-63.mp4
+commit rc=0
+To https://github.com/bitdogemostafa-afk/youtube
+   cacbd1b..2e49b4c  footage-cache -> footage-cache
+push rc=0
