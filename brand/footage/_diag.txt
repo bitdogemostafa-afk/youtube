@@ -206,3 +206,10 @@ drwxr-xr-x 4 runner runner      4096 Oct  2 18:23 ..
 mp4 count: 61
 2.1G	brand/footage
 /dev/root       145G   61G   84G  43% /
+=== stage: trim 18:25:43 ===
+mp4 before: 61
+2.1G	brand/footage
+trimmed ok=61 failed=0
+mp4 after: 61
+263M	brand/footage
+/dev/root       145G   59G   86G  41% /
