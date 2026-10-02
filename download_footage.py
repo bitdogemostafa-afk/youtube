@@ -324,3 +324,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+# trigger: re-download with relevance-based clip selection
