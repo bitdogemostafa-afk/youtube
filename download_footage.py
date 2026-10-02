@@ -326,3 +326,5 @@ if __name__ == "__main__":
     main()
 
 # trigger: re-download with relevance-based clip selection
+
+# trigger: fresh download with relevance-based selection (clips now gitignored)
