@@ -39,6 +39,9 @@ KEY_FILE = {"pexels": "pexels_key.txt", "pixabay": "pixabay_key.txt"}
 # Pixabay quality tiers, best first
 PIXABAY_TIERS = ("large", "medium", "small", "tiny")
 
+BROWSER_UA = ("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
+              "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36")
+
 
 def resolve_key(provider, cli_key):
     if cli_key:
@@ -54,8 +57,16 @@ def resolve_key(provider, cli_key):
 
 
 def http_get(url, headers=None, tries=4, timeout=45):
+    # Cloudflare (which fronts pixabay.com) blocks the default
+    # `Python-urllib/x.y` signature with "error code: 1010", so every request
+    # goes out looking like a browser.
+    hdrs = {"User-Agent": BROWSER_UA,
+            "Accept": "application/json,text/plain,*/*",
+            "Accept-Language": "en-US,en;q=0.9"}
+    if headers:
+        hdrs.update(headers)
     for attempt in range(tries):
-        req = urllib.request.Request(url, headers=headers or {})
+        req = urllib.request.Request(url, headers=hdrs)
         try:
             with urllib.request.urlopen(req, timeout=timeout) as r:
                 return r.read()
@@ -140,8 +151,9 @@ SEARCH = {"pexels": search_pexels, "pixabay": search_pixabay}
 def download(url, dest, referer, tries=4):
     """Download with a browser-ish UA; Pixabay rejects bare urllib."""
     tmp = dest + ".part"
-    headers = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36",
-               "Referer": referer}
+    headers = {"User-Agent": BROWSER_UA,
+               "Referer": referer,
+               "Accept": "*/*"}
     for attempt in range(tries):
         try:
             req = urllib.request.Request(url, headers=headers)
