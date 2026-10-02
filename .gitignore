@@ -15,3 +15,7 @@ brand/sfx/placeholder-*.wav
 
 # Pexels API key — never commit this
 brand/pexels_key.txt
+
+# downloaded footage lives on the footage-cache branch, never on the session branch
+brand/footage/*.mp4
+brand/footage/_diag.txt
