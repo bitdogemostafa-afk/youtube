@@ -31,6 +31,16 @@ jobs:
         with:
           python-version: "3.11"
 
+      # ffmpeg is NOT preinstalled on this runner image, and `ffmpeg -version |
+      # head -1` hides that because the pipeline exits with head's status.
+      - name: install ffmpeg
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+          command -v ffmpeg
+          ffmpeg -version | head -1
+
       - name: download the 61 clips
         env:
           PIXABAY_API_KEY: ${{ secrets.PEXELS_API_KEY }}
