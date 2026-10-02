@@ -910,6 +910,10 @@
   {
    "stage": "seo-manager",
    "note": "recomputed the 9 chapter timestamps from the real timeline (scene N starts at (N-1)*(10.0-0.5)s; total 599.0s). The hand-written stamps had drifted up to ~100s. Added the missing «ليه بنحبها» chapter (scenes 44-49)."
+  },
+  {
+   "stage": "voiceover-artist",
+   "note": "all 63 narration clips generated (voice-02, Egyptian Arabic, mystery-style). Verified: no missing clip, no clip exceeds the 11.5s trimmed limit (worst 11.37s), total narration 634.8s (avg 10.08s per 10.0s scene). Text comes verbatim from scenes[].narration after the scriptwriter timing pass."
   }
  ]
 }
