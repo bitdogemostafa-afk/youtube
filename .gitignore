@@ -1,0 +1,24 @@
+# generated build intermediates (segments, chain, test renders, final video)
+.build/*
+# ...but keep the narration audio and the still-scene images: the sandbox can
+# reset and wipe them, and they cost a lot of turns to regenerate
+!.build/audio/
+!.build/scenes/
+
+__pycache__/
+*.pyc
+.DS_Store
+
+# placeholder audio synthesised by make_music.py (replace with real tracks)
+brand/music/placeholder-*.wav
+brand/sfx/placeholder-*.wav
+
+# Pexels API key — never commit this
+brand/pexels_key.txt
+
+# downloaded footage lives on the footage-cache branch, never on the session branch
+brand/footage/*.mp4
+brand/footage/_diag.txt
+
+# the 4K deliverable itself (regenerable, ~800 MB)
+final.mp4

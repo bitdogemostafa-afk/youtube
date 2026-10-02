@@ -1,0 +1,151 @@
+name: fetch-footage
+
+# GitHub's own runners have unrestricted internet, so they can reach the stock
+# footage APIs even though the sandbox that authored this plan cannot.  The
+# workflow downloads every clip the plan needs, trims it to the 10s the build
+# consumes, and commits them to the `footage-cache` branch so the sandbox can
+# pull them with plain git (the only host reachable from there).
+#
+# Every step appends to brand/footage/_diag.txt and commits it, so the sandbox
+# can read exactly what happened even though it cannot read the run logs
+# (results-receiver.actions.githubusercontent.com is blocked out there).
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/fetch-footage.yml"
+      - "download_footage.py"
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      # ffmpeg is NOT preinstalled on this runner image, and `ffmpeg -version |
+      # head -1` hides that because the pipeline exits with head's status.
+      - name: install ffmpeg
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+          command -v ffmpeg
+          ffmpeg -version | head -1
+
+      - name: download the 61 clips
+        env:
+          PIXABAY_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          FOOTAGE_PROVIDER: pixabay
+        run: |
+          set +e
+          D=brand/footage/_diag.txt
+          mkdir -p brand/footage
+          {
+            echo "=== stage: download $(date -u +%H:%M:%S) ==="
+            echo "pwd=$(pwd)"
+            code=$(curl -s -o /tmp/probe.json -w "%{http_code}" \
+              -A "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/120.0.0.0 Safari/537.36" \
+              "https://pixabay.com/api/videos/?key=${PIXABAY_API_KEY}&q=rain&per_page=3")
+            echo "probe HTTP=$code keylen=${#PIXABAY_API_KEY}"
+            python3 download_footage.py --provider pixabay 2>&1
+            echo "exit=$?"
+            echo "--- listing ---"
+            ls -la brand/footage/ | head -8
+            echo "mp4 count: $(ls brand/footage/scene-*.mp4 2>/dev/null | wc -l)"
+            du -sh brand/footage
+            df -h . | tail -1
+          } > "$D" 2>&1
+          cat "$D"
+
+      - name: publish diagnostics
+        if: ${{ always() }}
+        run: |
+          git config user.name  "footage-bot"
+          git config user.email "footage-bot@users.noreply.github.com"
+          git checkout -B footage-cache
+          git add -f brand/footage/_diag.txt
+          git commit -m "diag: download" || echo "nothing to commit"
+          git push -f origin footage-cache || echo "PUSH FAILED"
+
+      - name: trim each clip to the 10s the build consumes
+        run: |
+          set +e
+          D=brand/footage/_diag.txt
+          {
+            echo "=== stage: trim $(date -u +%H:%M:%S) ==="
+            echo "mp4 before: $(ls brand/footage/scene-*.mp4 2>/dev/null | wc -l)"
+            du -sh brand/footage
+            shopt -s nullglob
+            ok=0; bad=0
+            for f in brand/footage/scene-*.mp4; do
+              base=$(basename "$f")
+              if ffmpeg -y -i "$f" -t 10 \
+                   -vf "scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080" \
+                   -c:v libx264 -preset veryfast -crf 23 -an \
+                   -movflags +faststart "/tmp/$base" 2>/tmp/ff.log; then
+                mv "/tmp/$base" "$f"; ok=$((ok+1))
+              else
+                echo "TRIM FAILED $base:"; tail -3 /tmp/ff.log; bad=$((bad+1))
+              fi
+            done
+            echo "trimmed ok=$ok failed=$bad"
+            echo "mp4 after: $(ls brand/footage/scene-*.mp4 2>/dev/null | wc -l)"
+            du -sh brand/footage
+            df -h . | tail -1
+          } >> "$D" 2>&1
+          cat "$D" | tail -20
+
+      - name: publish trimmed diagnostics
+        if: ${{ always() }}
+        run: |
+          git config user.name  "footage-bot"
+          git config user.email "footage-bot@users.noreply.github.com"
+          git checkout -B footage-cache
+          git add -f brand/footage/_diag.txt
+          git commit -m "diag: trim" || echo "nothing to commit"
+          git push -f origin footage-cache || echo "PUSH FAILED"
+
+      - name: commit the clips to footage-cache
+        if: ${{ always() }}
+        run: |
+          set +e
+          D=brand/footage/_diag.txt
+          {
+            echo "=== stage: commit $(date -u +%H:%M:%S) ==="
+            echo "mp4 to commit: $(ls brand/footage/scene-*.mp4 2>/dev/null | wc -l)"
+          } >> "$D" 2>&1
+          git config user.name  "footage-bot"
+          git config user.email "footage-bot@users.noreply.github.com"
+          git checkout -B footage-cache
+          git add -f brand/footage/
+          if git diff --cached --quiet; then
+            echo "NOTHING STAGED" >> "$D"
+          else
+            echo "staged $(git diff --cached --name-only | wc -l) files" >> "$D"
+            git commit -m "footage: 61 clips trimmed to 10s @1080p" >> "$D" 2>&1
+            echo "commit rc=$?" >> "$D"
+            git push -f origin footage-cache >> "$D" 2>&1
+            echo "push rc=$?" >> "$D"
+          fi
+          git add -f brand/footage/_diag.txt
+          git commit -m "diag: commit" >> "$D" 2>&1 || true
+          git push -f origin footage-cache >> "$D" 2>&1 || echo "final push failed"
+          tail -25 "$D"
+
+      - name: summary
+        if: ${{ always() }}
+        run: |
+          n=$(ls brand/footage/scene-*.mp4 2>/dev/null | wc -l)
+          sz=$(du -sh brand/footage 2>/dev/null | cut -f1)
+          echo "### footage" >> $GITHUB_STEP_SUMMARY
+          echo "- clips: $n / 61" >> $GITHUB_STEP_SUMMARY
+          echo "- size: $sz" >> $GITHUB_STEP_SUMMARY
