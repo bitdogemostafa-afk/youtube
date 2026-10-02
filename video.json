@@ -841,7 +841,7 @@
  },
  "metadata": {
   "title": "ليه ريحة المطر حلوة كده؟ — اللغز اللي البكتيريا عملته",
-  "description": "ريحة المطر مش من المطر! تعرف على قصة بتريكور والجيوسمين والبكتيريا اللي عمرها ملايين السنين.\n\n00:00 اللغز\n00:30 اسم الريحة\n01:10 صانع الريحة\n02:20 إزاي توصل لأنفك\n04:00 الريحة قبل المطر\n05:00 أنفك ضد القرش\n06:30 رسالة للحشرات\n08:00 الإجابة\n\nمصادر: Nature 1964 · MIT 2015 · John Innes Centre",
+  "description": "ريحة المطر مش من المطر! تعرف على قصة بتريكور والجيوسمين والبكتيريا اللي عمرها ملايين السنين.\n\n00:00 اللغز\n00:38 اسم الريحة\n01:16 صانع الريحة\n02:03 إزاي توصل لأنفك\n03:29 الريحة قبل المطر\n03:57 أنفك ضد القرش\n04:54 رسالة للحشرات\n06:48 ليه بنحبها\n07:45 الإجابة\n\nمصادر: Nature 1964 · MIT 2015 · John Innes Centre",
   "tags": [
    "ريحة المطر",
    "بتريكور",
@@ -902,6 +902,14 @@
   {
    "stage": "thumbnail-designer",
    "note": "thumbnail.jpg 1280x720: AI background (face in rain/mist, dark storm, high contrast) + Arabic title «ريحة المطر» burned via libass (ffmpeg drawtext is NOT in the bundled build; the `subtitles` filter + Amiri-Bold from google/fonts via api.github.com gives proper RTL shaping). Kicker line taken from the title: «اللغز اللي البكتيريا عملته». Tool: make_thumbnail.py (re-runnable)."
+  },
+  {
+   "stage": "seo-manager",
+   "note": "recomputed the 9 chapter timestamps from the real timeline (scene N starts at (N-1)*(10.0-0.5)s; total 599.0s). The hand-written stamps had drifted up to ~100s. Added the missing «ليه بنحبها» chapter (scenes 44-49)."
+  },
+  {
+   "stage": "seo-manager",
+   "note": "recomputed the 9 chapter timestamps from the real timeline (scene N starts at (N-1)*(10.0-0.5)s; total 599.0s). The hand-written stamps had drifted up to ~100s. Added the missing «ليه بنحبها» chapter (scenes 44-49)."
   }
  ]
 }
