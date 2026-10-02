@@ -239,7 +239,13 @@ def choose(results, query):
 
 
 def query_variants(query):
-    """The exact query first, then progressively shorter versions."""
+    """The exact query first, then progressively shorter versions.
+
+    Shortening is a rescue for Pixabay's small library, not a way to game the
+    score: a 2-word variant that happens to match two tags must never beat the
+    full query, so the caller only falls through to a shorter variant when the
+    longer one produced nothing on-topic at all.
+    """
     words = query.split()
     variants = [query]
     for n in range(len(words) - 1, 1, -1):
@@ -247,6 +253,16 @@ def query_variants(query):
         if v not in variants:
             variants.append(v)
     return variants
+
+
+def pick_hit(hits, variant):
+    """Pixabay already ranks by relevance, so the first hit that actually
+    covers a query word wins. Hits that cover nothing are skipped only as far
+    as the first real match, which keeps a wide-but-wrong loop out."""
+    for h in hits:
+        if relevance(h, variant) > 0:
+            return h
+    return None
 
 
 # ------------------------------------------------------------------- main
@@ -301,11 +317,10 @@ def main():
         if args.dry_run:
             continue
 
-        # Try every query variant and keep whichever produced the best
-        # *ratio* of matched words: a short exact query ('beetroot' -> 1/1)
-        # must beat a long confused one ('fresh beetroot beets on soil
-        # close up' -> 2/7), which is what used to hand the scene to a bee.
-        best_pair, best_ratio, first_hits = None, 0.0, None
+        # Trust Pixabay's own ranking for the full query and take the first hit
+        # that covers a query word; only fall through to a shorter variant when
+        # the longer one turned up nothing on-topic.
+        best_pair, first_hits = None, None
         for variant in query_variants(query):
             try:
                 hits = search_fn(variant, key, args.per_page)
@@ -314,24 +329,23 @@ def main():
             except Exception as e:
                 print("      search error: %s" % e)
                 hits = []
-            if hits and not first_hits:
+            if not hits:
+                continue
+            if not first_hits:
                 first_hits = (hits, variant)
-            if hits:
-                cand = choose(hits, variant)
-                ratio = match_ratio(cand, variant)
-                if ratio > best_ratio:
-                    best_pair, best_ratio = (hits, variant), ratio
-                if ratio == 1.0:
-                    break
+            hit = pick_hit(hits, variant)
+            if hit is not None:
+                best_pair = (hits, variant)
+                break
             if variant != query:
                 print("      (shortened to %r)" % variant)
             time.sleep(0.7)
 
         if best_pair is None:
-            # nothing matched a query word: keep the best raw hit rather than
-            # dropping the scene, and say so loudly in the audit trail
+            # nothing anywhere covered a query word: keep Pixabay's own top hit
+            # rather than dropping the scene, and say so in the audit trail
             if first_hits:
-                best_pair, best_ratio = first_hits, 0.0
+                best_pair = first_hits
                 print("      !! no on-topic hit, falling back to %r"
                       % first_hits[1])
             else:
@@ -340,13 +354,13 @@ def main():
                 continue
 
         results, used = best_pair
-        best = choose(results, used)
+        best = pick_hit(results, used) or results[0]
         rel = relevance(best, used)
         if used != query:
             print("      matched via %r" % used)
-        print("      relevance %d/%d (%.0f%%) | tags: %s"
+        print("      relevance %d/%d | tags: %s"
               % (rel, len([w for w in used.split() if len(w) > 2]),
-                 best_ratio * 100, best["tags"][:70]))
+                 best["tags"][:70]))
 
         try:
             size = download(best["url"], dest, referer)
