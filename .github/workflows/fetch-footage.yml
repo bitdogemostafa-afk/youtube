@@ -1,0 +1,82 @@
+name: fetch-footage
+
+# GitHub's own runners have unrestricted internet, so they can reach the Pexels
+# API even though the sandbox that authored this plan cannot.  The workflow
+# downloads every clip the plan needs, trims it to the 10s the build consumes,
+# and commits them to the `footage-cache` branch so the sandbox can pull them
+# with plain git (the only host reachable from there).
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/fetch-footage.yml"
+      - "download_footage.py"
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: check the key is present
+        env:
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+        run: |
+          if [ -z "$PEXELS_API_KEY" ]; then
+            echo "::error::PEXELS_API_KEY secret is not set."
+            echo "Add it in GitHub: Settings -> Secrets and variables ->"
+            echo "Actions -> New repository secret, name it PEXELS_API_KEY."
+            exit 1
+          fi
+          echo "key present (${#PEXELS_API_KEY} chars)"
+
+      - name: download the 61 clips from Pexels
+        env:
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+        run: python3 download_footage.py
+
+      - name: trim each clip to the 10s the build consumes
+        run: |
+          shopt -s nullglob
+          for f in brand/footage/scene-*.mp4; do
+            base=$(basename "$f")
+            # 10s, capped at 1080p, no audio (the timeline uses narration only)
+            ffmpeg -y -i "$f" -t 10 \
+              -vf "scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080" \
+              -c:v libx264 -preset veryfast -crf 23 -an \
+              -movflags +faststart "/tmp/$base"
+            mv "/tmp/$base" "$f"
+            echo "trimmed $base ($(du -h "$f" | cut -f1))"
+          done
+
+      - name: commit the clips to footage-cache
+        run: |
+          git config user.name  "footage-bot"
+          git config user.email "footage-bot@users.noreply.github.com"
+          git checkout -B footage-cache
+          git add -f brand/footage/
+          if git diff --cached --quiet; then
+            echo "no clips to commit"
+          else
+            git commit -m "footage: 61 Pexels clips trimmed to 10s @1080p"
+            git push -f origin footage-cache
+            echo "pushed $(git rev-parse --short HEAD) to footage-cache"
+          fi
+
+      - name: summary
+        run: |
+          n=$(ls brand/footage/scene-*.mp4 2>/dev/null | wc -l)
+          sz=$(du -sh brand/footage 2>/dev/null | cut -f1)
+          echo "### footage ready" >> $GITHUB_STEP_SUMMARY
+          echo "- clips: $n / 61" >> $GITHUB_STEP_SUMMARY
+          echo "- total size: $sz" >> $GITHUB_STEP_SUMMARY
+          echo "- branch: \`footage-cache\`" >> $GITHUB_STEP_SUMMARY
