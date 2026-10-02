@@ -141,9 +141,32 @@ def footage_gate(scenes):
         print(f"== still scenes ({len(no_footage)}/{STILL_SCENE_LIMIT}): {ids}")
 
 
+def header_duration(ffmpeg, path):
+    """Duration from the container header - no decoding, so it is cheap.
+
+    ffprobe is not installed on the runner, and the null-decode fallback in
+    probe_duration would read every 4K frame just to check a cache hit.
+    """
+    try:
+        p = subprocess.run([ffmpeg, "-hide_banner", "-i", path],
+                           capture_output=True, text=True, timeout=30)
+    except Exception:
+        return None
+    m = re.search(r"Duration: (\d+):(\d+):(\d+\.\d+)", p.stderr)
+    if not m:
+        return None
+    return int(m.group(1)) * 3600 + int(m.group(2)) * 60 + float(m.group(3))
+
+
 def build_segment(ffmpeg, label, visual, dur, w, h, fps, move="zoom-in"):
     """Normalise one visual into a silent segment of exactly `dur` seconds."""
     out = os.path.join(SEG_DIR, f"seg-{label}.mp4")
+    # reuse an already-built segment: a 4K encode of the same footage and the
+    # same duration is deterministic, and the runner has only ~4 GB and 2 CPUs
+    if os.path.exists(out):
+        have = header_duration(ffmpeg, out)
+        if have and abs(have - dur) < 0.06:
+            return out
     ext = os.path.splitext(visual)[1].lower()
     if ext in (".jpg", ".jpeg", ".png", ".webp", ".bmp"):
         frames = max(1, int(round(dur * fps)))
@@ -317,25 +340,64 @@ def main():
         e["start"] = 0.0 if i == 0 else entries[i - 1]["start"] + entries[i - 1]["dur"] - xfade
     total = entries[-1]["start"] + entries[-1]["dur"]
 
-    # ---------------- xfade chain (video only) ----------------
-    print("== crossfade chain ==")
+    # ---------------- crossfaded timeline (video only) ----------------
+    # A single 63-input xfade graph at 3840x2160 keeps every decoder resident
+    # at once and is OOM-killed on a ~4 GB runner (7 inputs already die). So
+    # the timeline is assembled the cheap way instead: each segment keeps its
+    # clean middle, every 0.5s overlap becomes its own tiny two-input xfade,
+    # and the 125 pieces are joined with a stream copy - one encode per piece
+    # rather than three nested re-encodes.
+    print("== crossfade timeline ==")
     if len(entries) > 1:
         chain = os.path.join(BUILD, "chain.mp4")
-        inputs = []
-        for s in segs:
-            inputs += ["-i", s]
-        fc = []
-        prev = "0:v"
-        for i in range(1, len(entries)):
-            tr = XFADE_MAP.get(str(entries[i].get("transition", "fade")).lower(), "fade")
-            off = entries[i]["start"]
-            fc.append(f"[{prev}][{i}:v]xfade=transition={tr}:duration={xfade:.3f}:offset={off:.3f}[x{i}]")
-            prev = f"x{i}"
-        cmd = [ffmpeg, "-y"] + inputs + [
-            "-filter_complex", ";".join(fc), "-map", f"[{prev}]",
-            "-c:v", "libx264", "-preset", "veryfast", "-pix_fmt", "yuv420p",
-            "-r", str(fps), "-movflags", "+faststart", chain]
-        run(cmd, "xfade chain")
+        # 0.5s at 25fps is 12.5 frames, so a transition is either 12 or 13
+        # frames. Alternating them keeps the running total exactly on the
+        # nominal 14975-frame timeline (599.0s); a fixed 12 or 13 would drift
+        # by up to 31 frames and desync the picture from the narration.
+        n = len(entries)
+        pieces = []
+        for i in range(n):
+            if i == 0:
+                cframes = int(round((entries[i]["dur"] - xfade) * fps))
+            elif i == n - 1:
+                cframes = int(round((entries[i]["dur"] - xfade) * fps)) - 1
+            else:
+                cframes = int(round((entries[i]["dur"] - 2 * xfade) * fps))
+            cp = os.path.join(BUILD, f"clean-{i:03d}.mp4")
+            ss = 0.0 if i == 0 else xfade
+            run([ffmpeg, "-y", "-ss", f"{ss:.3f}", "-i", segs[i],
+                 "-frames:v", str(cframes),
+                 "-c:v", "libx264", "-preset", "veryfast", "-pix_fmt", "yuv420p",
+                 "-r", str(fps), "-g", "25",
+                 "-video_track_timescale", "12800", cp],
+                f"clean {i:03d} ({cframes}f)")
+            pieces.append(cp)
+            if i < n - 1:
+                # 13, 12, 13, 12 ... averaging exactly 12.5
+                tframes = 13 if (i + 1) % 2 == 1 else 12
+                tr = XFADE_MAP.get(
+                    str(entries[i + 1].get("transition", "fade")).lower(), "fade")
+                tp = os.path.join(BUILD, f"trans-{i + 1:03d}.mp4")
+                run([ffmpeg, "-y",
+                     "-ss", f"{entries[i]['dur'] - xfade:.3f}", "-i", segs[i],
+                     "-ss", "0", "-i", segs[i + 1],
+                     "-filter_complex",
+                     f"[0:v][1:v]xfade=transition={tr}"
+                     f":duration={xfade:.3f}:offset=0[v]",
+                     "-map", "[v]", "-frames:v", str(tframes),
+                     "-c:v", "libx264", "-preset", "veryfast",
+                     "-pix_fmt", "yuv420p", "-r", str(fps), "-g", "25",
+                     "-video_track_timescale", "12800", tp],
+                    f"transition {i + 1:03d} ({tframes}f)")
+                pieces.append(tp)
+
+        lst = os.path.join(BUILD, "pieces.txt")
+        with open(lst, "w") as fh:
+            for p in pieces:
+                fh.write("file '%s'\n" % os.path.abspath(p))
+        run([ffmpeg, "-y", "-f", "concat", "-safe", "0", "-i", lst,
+             "-c", "copy", "-movflags", "+faststart", chain],
+            "join %d pieces" % len(pieces))
     else:
         chain = segs[0]
 

@@ -19,3 +19,6 @@ brand/pexels_key.txt
 # downloaded footage lives on the footage-cache branch, never on the session branch
 brand/footage/*.mp4
 brand/footage/_diag.txt
+
+# the 4K deliverable itself (regenerable, ~800 MB)
+final.mp4
