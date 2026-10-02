@@ -255,10 +255,34 @@ def query_variants(query):
     return variants
 
 
+def head_words(query, n=2):
+    """The first few words of a query - they name the subject.
+
+    'dry earth texture cracks warm sunlight close up' is about *dry earth*, not
+    about texture or close up. Pixabay's own ranking happily returns a lipstick
+    macro for both this and 'ancient greek stone temple ruins texture close up'
+    because they share the two generic words, so the subject has to be checked
+    separately.
+    """
+    return [w.lower() for w in query.split()[:n] if len(w) > 2]
+
+
+def covers_subject(video, query):
+    """Does the hit's tags cover the subject of the query?"""
+    if not head_words(query):
+        return True
+    tags = set(t.strip().lower() for t in video["tags"].split(","))
+    return any(any(_word_in_tag(w, t) for t in tags) for w in head_words(query))
+
+
 def pick_hit(hits, variant):
-    """Pixabay already ranks by relevance, so the first hit that actually
-    covers a query word wins. Hits that cover nothing are skipped only as far
-    as the first real match, which keeps a wide-but-wrong loop out."""
+    """Pixabay already ranks by relevance, so prefer the first hit that covers
+    the subject; then any hit that covers a query word; then Pixabay's own top
+    hit. This keeps a wide-but-wrong loop (or a lipstick macro standing in for
+    Greek ruins) out of the edit."""
+    for h in hits:
+        if covers_subject(h, variant):
+            return h
     for h in hits:
         if relevance(h, variant) > 0:
             return h
