@@ -1,10 +1,10 @@
 name: fetch-footage
 
-# GitHub's own runners have unrestricted internet, so they can reach the Pexels
-# API even though the sandbox that authored this plan cannot.  The workflow
-# downloads every clip the plan needs, trims it to the 10s the build consumes,
-# and commits them to the `footage-cache` branch so the sandbox can pull them
-# with plain git (the only host reachable from there).
+# GitHub's own runners have unrestricted internet, so they can reach the stock
+# footage APIs even though the sandbox that authored this plan cannot.  The
+# workflow downloads every clip the plan needs, trims it to the 10s the build
+# consumes, and commits them to the `footage-cache` branch so the sandbox can
+# pull them with plain git (the only host reachable from there).
 
 on:
   workflow_dispatch:
@@ -19,7 +19,7 @@ permissions:
 jobs:
   fetch:
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    timeout-minutes: 120
     steps:
       - uses: actions/checkout@v4
 
@@ -27,37 +27,38 @@ jobs:
         with:
           python-version: "3.11"
 
+      # the secret is named PEXELS_API_KEY but holds the Pixabay key the user
+      # actually has; it is mapped onto the variable the downloader reads.
       - name: check the key is present
         env:
-          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          PIXABAY_API_KEY: ${{ secrets.PEXELS_API_KEY }}
         run: |
-          if [ -z "$PEXELS_API_KEY" ]; then
-            echo "::error::PEXELS_API_KEY secret is not set."
+          if [ -z "$PIXABAY_API_KEY" ]; then
+            echo "::error::secret PEXELS_API_KEY is not set."
             echo "Add it in GitHub: Settings -> Secrets and variables ->"
-            echo "Actions -> New repository secret, name it PEXELS_API_KEY."
+            echo "Actions -> New repository secret."
             exit 1
           fi
-          echo "key present (${#PEXELS_API_KEY} chars)"
+          echo "key present (${#PIXABAY_API_KEY} chars)"
 
-      - name: download the 61 clips from Pexels
+      - name: download the 61 clips
         env:
-          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          PIXABAY_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          FOOTAGE_PROVIDER: pixabay
         run: |
           set +e
           echo "=== direct API probe ===" > /tmp/diag.txt
           code=$(curl -s -o /tmp/probe.json -w "%{http_code}" \
-            -H "Authorization: $PEXELS_API_KEY" \
-            "https://api.pexels.com/videos/search?query=rain&per_page=1")
+            "https://pixabay.com/api/videos/?key=${PIXABAY_API_KEY}&q=rain&per_page=3")
           echo "HTTP status: $code" >> /tmp/diag.txt
-          echo "body (first 400 chars):" >> /tmp/diag.txt
-          head -c 400 /tmp/probe.json >> /tmp/diag.txt
+          head -c 500 /tmp/probe.json >> /tmp/diag.txt
           echo "" >> /tmp/diag.txt
-          echo "key length: ${#PEXELS_API_KEY}" >> /tmp/diag.txt
+          echo "key length: ${#PIXABAY_API_KEY}" >> /tmp/diag.txt
           echo "=== downloader output ===" >> /tmp/diag.txt
-          python3 download_footage.py >> /tmp/diag.txt 2>&1
+          python3 download_footage.py --provider pixabay >> /tmp/diag.txt 2>&1
           echo "downloader exit code: $?" >> /tmp/diag.txt
           cp /tmp/diag.txt brand/footage/_diag.txt
-          echo "diagnostics written to brand/footage/_diag.txt"
+          cat /tmp/diag.txt
 
       - name: trim each clip to the 10s the build consumes
         if: ${{ hashFiles('brand/footage/scene-*.mp4') != '' }}
@@ -84,12 +85,13 @@ jobs:
           if git diff --cached --quiet; then
             echo "nothing to commit"
           else
-            git commit -m "footage: 61 Pexels clips trimmed to 10s @1080p (+diagnostics)"
+            git commit -m "footage: clips from Pixabay trimmed to 10s @1080p (+diagnostics)"
             git push -f origin footage-cache
             echo "pushed $(git rev-parse --short HEAD) to footage-cache"
           fi
 
       - name: summary
+        if: ${{ always() }}
         run: |
           n=$(ls brand/footage/scene-*.mp4 2>/dev/null | wc -l)
           sz=$(du -sh brand/footage 2>/dev/null | cut -f1)
@@ -97,5 +99,3 @@ jobs:
           echo "- clips: $n / 61" >> $GITHUB_STEP_SUMMARY
           echo "- total size: $sz" >> $GITHUB_STEP_SUMMARY
           echo "- branch: \`footage-cache\`" >> $GITHUB_STEP_SUMMARY
-
-# trigger: re-run after PEXELS_API_KEY was added as a repository secret
