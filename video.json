@@ -914,6 +914,10 @@
   {
    "stage": "voiceover-artist",
    "note": "all 63 narration clips generated (voice-02, Egyptian Arabic, mystery-style). Verified: no missing clip, no clip exceeds the 11.5s trimmed limit (worst 11.37s), total narration 634.8s (avg 10.08s per 10.0s scene). Text comes verbatim from scenes[].narration after the scriptwriter timing pass."
+  },
+  {
+   "stage": "video-editor (preview build)",
+   "note": "Preview render at 640x360 with 61 labelled placeholder clips (scene number + English search query burned in via libass), real 63 narration clips, real stills, music+whoosh+riser mix. Result: 598.90s (~10 min), AAC stereo, .build/preview.mp4. Purpose: review the edit/narration/pacing before the 4K build. Final build = same command once the 61 real clips land in brand/footage/. Tool: make_preview_footage.py"
   }
  ]
 }
