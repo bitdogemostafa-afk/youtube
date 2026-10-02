@@ -1,0 +1,208 @@
+=== stage: download 18:23:45 ===
+pwd=/home/runner/work/youtube/youtube
+probe HTTP=200 keylen=34
+provider: pixabay   key: 578371...c9f0 (34 chars)
+[ 1/61] scene 01  man standing looking up at dark storm clouds gathering sky
+      relevance 1/8 | tags: man, sahara, desert, adventure, laughed at, storm dune, sand
+      -> 1920x1080  20.0 MB  (id 7686)
+[ 2/61] scene 02  rain drops falling on dry cracked soil close up macro
+      relevance 2/8 | tags: rain, thunder, water, lightning, thunderstorm, wet, falling, water dro
+      -> 0x0  21.2 MB  (id 78)
+[ 3/61] scene 03  dry earth texture cracks warm sunlight close up
+      relevance 1/7 | tags: grass, plant, dry, park, garden, botanical, spring, summer, leaves, wi
+      -> 3840x2160  138.3 MB  (id 197946)
+[ 4/61] scene 04  aerial view flying over dry barren landscape soil
+      relevance 2/8 | tags: snowy trees, above, winter, landscape, forest, aerial, snow, revealing
+      -> 1920x1080  15.7 MB  (id 7328)
+[ 5/61] scene 05  vintage scientists writing research paper at desk
+      relevance 2/6 | tags: scientist, laboratory, research, space, science, technology, discussio
+      -> 1920x1080  5.7 MB  (id 192281)
+[ 6/61] scene 06  old vintage nature science journal pages close up
+      relevance 1/7 | tags: ink, bubbles, drops, abstract, colours, pattern, food colouring, vinta
+      -> 3840x2160  101.6 MB  (id 183136)
+[ 7/61] scene 07  ancient greek stone temple ruins texture close up
+      relevance 4/7 | tags: zeus, greek, god, statue, athens, greece, olympia, enemy, monument, hi
+      -> 1920x1080  7.4 MB  (id 30096)
+[ 8/61] scene 08  hands digging dark soil close up macro
+      relevance 2/6 | tags: honeycomb, honey, hand, close-up, beeswax, macro
+      -> 1920x1080  7.5 MB  (id 39125)
+[ 9/61] scene 09  microscopic filamentous bacteria animation dark background
+      relevance 2/6 | tags: bacterium, germ, bacteria, virus, infection, microbiology, microscopic
+      -> 1782x1080  4.4 MB  (id 9854)
+[10/61] scene 10  soil cross section layers underground dark macro
+      relevance 1/7 | tags: worship, bible, church, cross, christian cross
+      -> 1920x1080  12.5 MB  (id 5084)
+[11/61] scene 12  bacterial spores abstract animation glowing dark
+      relevance 2/6 | tags: particles, disco, light, colorful, colors, dots, retro, party, light e
+      -> 1920x1080  5.9 MB  (id 6436)
+[12/61] scene 13  dry soil surface heat shimmer waiting for rain
+      relevance 2/8 | tags: monument valley, desert, beautiful wallpaper, usa, background, wild we
+      -> 1920x880  188.9 MB  (id 310)
+[13/61] scene 14  single raindrop falling slow motion dark background
+      relevance 1/7 | tags: raindrop, rain, water, lake, rainy weather, drops, wet, raindrops jump
+      -> 1920x1080  31.9 MB  (id 181916)
+[14/61] scene 15  raindrop impact dry soil slow motion extreme macro
+      relevance 1/8 | tags: raindrop, rain, water, lake, rainy weather, drops, wet, raindrops jump
+      -> 1920x1080  31.9 MB  (id 181916)
+[15/61] scene 16  air bubble rising inside water droplet slow motion
+      relevance 2/8 | tags: underwater, sea, ocean, water, air bubbles, blue, underwater world, de
+      -> 1920x1080  18.6 MB  (id 37712)
+[16/61] scene 17  high speed camera laboratory water splash research
+      relevance 3/7 | tags: motor boat, boats, splash, racing, sea, caribbean, race, speed, vacati
+      -> 3840x2160  35.4 MB  (id 23011)
+[17/61] scene 18  wind blowing dust particles in sunlight close up
+      relevance 3/6 | tags: smoke, steam, dust, fire, background, orange, blowing, wind, beautiful
+      -> 1920x880  88.1 MB  (id 306)
+[18/61] scene 19  gentle light rain drizzle on green leaves close up
+      relevance 2/7 | tags: rain, water, window, wet, drops, dripping, rainy, night, light, sad
+      -> 1920x1080  16.9 MB  (id 11722)
+[19/61] scene 20  heavy rain downpour flooding street city
+      relevance 2/6 | tags: rain, heavy rain, country rain, downpour, cloudburst, raindrop, rainy 
+      -> 3840x2160  26.0 MB  (id 26369)
+[20/61] scene 21  first light rain on dry ground at sunrise
+      relevance 2/6 | tags: rain, water, window, wet, drops, dripping, rainy, night, light, sad
+      -> 1920x1080  16.9 MB  (id 11722)
+[21/61] scene 22  rain stopping clouds clearing sunlight over landscape
+      relevance 3/7 | tags: rainbow, rain, sun, sunlight, refraction, nature, natural spectacle, h
+      -> 3840x2160  13.3 MB  (id 372048)
+[22/61] scene 23  lightning strike storm clouds night sky dramatic
+      relevance 7/7 | tags: storm, lightning bolt, lightning, thunder, thunderstorm, weather, rain
+      -> 1920x1080  3.3 MB  (id 41713)
+[23/61] scene 24  strong wind blowing trees before storm dramatic
+      relevance 2/7 | tags: storm, ocean, sky, rain, the waves, wind, dark clouds, rolling sea, an
+      -> 1920x1080  24.6 MB  (id 16160)
+[24/61] scene 25  storm clouds approaching over landscape timelapse
+      relevance 3/6 | tags: atmospheric, sky, clouds, cloudscape, sunset, mountains, scenery, natu
+      -> 3840x2160  30.2 MB  (id 190332)
+[25/61] scene 26  human nose profile close up portrait dramatic light
+      relevance 2/7 | tags: woman applying makeup, mask, make up, attractive, melted, fashion, lip
+      -> 1920x1080  4.8 MB  (id 12004)
+[26/61] scene 27  sugar cube dissolving in glass of water macro
+      relevance 2/6 | tags: strawberry, sugar, macro, wooden board, cute, yummy, food, meal, nouri
+      -> 3840x2160  17.1 MB  (id 275052)
+[27/61] scene 28  great white shark swimming deep ocean cinematic
+      relevance 2/7 | tags: swans, ducks, water, white, bird, nature, animal, wildlife, lake, wild
+      -> 2560x1440  32.7 MB  (id 1287)
+[28/61] scene 29  african savanna dry season landscape aerial
+      relevance 2/6 | tags: aerial view, salt lake, shoreline, nature, landscape, dry, salt, bushl
+      -> 3840x2160  28.0 MB  (id 275593)
+[29/61] scene 30  early humans walking savanna documentary style
+      relevance 2/6 | tags: hiking, walking, trail, man, alone, single, middle-aged, adult, human,
+      -> 3840x2160  38.3 MB  (id 282995)
+[30/61] scene 31  camel walking desert sand dunes cinematic
+      relevance 3/6 | tags: woman, camel, desert, sand
+      -> 1920x1080  9.3 MB  (id 83599)
+[31/61] scene 32  tiny springtail insect macro on soil
+      relevance 2/5 | tags: snow, flea, fleas, springtail, springtails, winter, small, tiny, micro
+      -> 1920x1080  14.9 MB  (id 64935)
+[32/61] scene 33  scientists setting traps in field research
+      relevance 2/5 | tags: scientist, laboratory, research, space, science, technology, discussio
+      -> 1920x1080  5.7 MB  (id 192281)
+[33/61] scene 34  small insects attracted to bait macro soil
+      relevance 2/6 | tags: macro, insect, yard, wasp, colombia
+      -> 1920x1080  10.4 MB  (id 14815)
+[34/61] scene 35  abstract microbial world animation dark cinematic
+      relevance 2/6 | tags: blue, stain, ink, mask, abstract, background, macro, dark, texture, pa
+      -> 1920x1080  6.3 MB  (id 22908)
+[35/61] scene 36  petri dish bacteria culture laboratory close up
+      relevance 2/6 | tags: laboratory, glassware, microbiology, pipette, biology, specimen, petri
+      -> 4096x2160  27.1 MB  (id 262189)
+[36/61] scene 37  antibiotic medicine pills close up macro
+      relevance 3/5 | tags: health, pain, that, glass, antibiotics, chemical, pill, patient, chemi
+      -> 3840x2160  117.5 MB  (id 38220)
+[37/61] scene 38  fresh beetroot beets on soil close up
+      relevance 1/5 | tags: farming, highway, zenith, beetroot, poland
+      -> 3840x2160  51.2 MB  (id 223870)
+[38/61] scene 39  luxury perfume bottle close up dark elegant
+      relevance 1/6 | tags: diamonds, jewels, rain, falling, wealth, value, money, crystal, jewelr
+      -> 1920x640  8.9 MB  (id 3125)
+[39/61] scene 40  perfumer laboratory with ingredients bottles
+      relevance 2/5 | tags: photography, laboratory, studio, shooting, woman, chemistry, equipment
+      -> 0x0  17.4 MB  (id 1307)
+[40/61] scene 41  traditional indian sandalwood oil distillation
+      relevance 1/5 | tags: ornament, santa claus, christmas, new year, celebration, traditional, 
+      -> 3840x2160  33.5 MB  (id 59526)
+[41/61] scene 42  different soil types clay sand stone texture
+      relevance 1/7 | tags: wave, rock, horizon, ocean, sun, beach, sea, shore, coast, coastline, 
+      -> 3840x2160  93.1 MB  (id 348904)
+[42/61] scene 43  middle eastern city street rain aerial cinematic
+      relevance 2/7 | tags: montreal, cityscape, aerial view, city, streets, metropole, canada, me
+      -> 1920x1080  35.1 MB  (id 3149)
+[43/61] scene 44  person watching rain through window nostalgic
+      relevance 2/6 | tags: men, window, dark, thoughts, person, shadow
+      -> 3840x2160  42.3 MB  (id 40797)
+[44/61] scene 45  old childhood photos rainy day nostalgic
+      relevance 1/6 | tags: raindrop, rainy day, plant in the rain, rainy
+      -> 1920x1080  33.0 MB  (id 122873)
+[45/61] scene 46  rain falling on green plants relief close up
+      relevance 2/6 | tags: rain, thunder, water, lightning, thunderstorm, wet, falling, water dro
+      -> 0x0  21.2 MB  (id 78)
+[46/61] scene 47  abstract glowing chemical molecules animation dark
+      relevance 2/6 | tags: dna, molecule, health, covid-19, beautiful wallpaper, corona, virus, b
+      -> 1920x1080  15.9 MB  (id 27019)
+[47/61] scene 48  raindrop explosion slow motion extreme macro
+      relevance 1/6 | tags: raindrop, rain, water, lake, rainy weather, drops, wet, raindrops jump
+      -> 1920x1080  31.9 MB  (id 181916)
+[48/61] scene 49  abstract human sense of smell visualization
+      relevance 1/5 | tags: animation, rings, circles, lines, abstract, multicoloured, screensaver
+      -> 1920x1080  8.1 MB  (id 4518)
+[49/61] scene 50  rain clouds forming timelapse dramatic sky
+      relevance 3/6 | tags: sunrise, sunset, weather, sky, clouds, twilight, atmosphere, timelapse
+      -> 0x0  14.9 MB  (id 1844)
+[50/61] scene 51  microscopic soil bacteria animation cinematic dark
+      relevance 2/6 | tags: bacterium, germ, bacteria, virus, infection, microbiology, microscopic
+      -> 1782x1080  4.4 MB  (id 9854)
+[51/61] scene 52  prehistoric ancient earth landscape cinematic
+      relevance 2/5 | tags: dinosaur, dino, prehistoric, green screen, chroma key, action, ancient
+      -> 4096x2160  4.2 MB  (id 82471)
+[52/61] scene 54  person smelling wet soil in hands close up
+      relevance 2/6 | tags: girl, heart, gesture, symbol, asian, cheerful, close-up, finger, hand,
+      -> 1920x1080  4.4 MB  (id 129421)
+[53/61] scene 55  close up soil under feet walking on earth
+      relevance 3/6 | tags: walk, slow, legs, feet, shoes, welcome, trainers, pants, trousers, wal
+      -> 1920x1080  2.1 MB  (id 47128)
+[54/61] scene 56  rainbow after rain over landscape cinematic
+      relevance 2/6 | tags: waterfall, rainbow, river, nature, outdoors, landscape, scenic
+      -> 3840x2160  123.7 MB  (id 246856)
+[55/61] scene 57  mysterious deep ocean water surface dark
+      relevance 5/6 | tags: water, dark, background, sea, deep, blue, wave, liquid, seascape, ocea
+      -> 1920x1080  9.6 MB  (id 304019)
+[56/61] scene 58  youtube subscribe and like button animation
+      relevance 3/6 | tags: subscribe, subscribe button, social, web, online, website, youtube, yo
+      -> 3840x2160  0.9 MB  (id 30285)
+[57/61] scene 59  cinematic aerial rain over green landscape
+      relevance 3/6 | tags: drone, nature, landscape, flight, forest, aerial, summer, travel, tree
+      -> 3840x2160  183.6 MB  (id 335040)
+[58/61] scene 60  dry cracked earth waiting for rain close up
+      relevance 1/7 | tags: grass, plant, dry, park, garden, botanical, spring, summer, leaves, wi
+      -> 3840x2160  138.3 MB  (id 197946)
+[59/61] scene 61  abstract dark soil texture close up moody
+      relevance 2/6 | tags: colours, pattern, texture, abstract, macro, close-up
+      -> 1920x1080  48.8 MB  (id 26493)
+[60/61] scene 62  cinematic rain drops on dry soil at sunrise
+      relevance 2/6 | tags: rain, raindrop, wet, water, window, drop, weather, droplets, blue, rai
+      -> 1920x1080  8.3 MB  (id 28236)
+[61/61] scene 63  rain falling on window glass evening warm light
+      relevance 3/7 | tags: rain, water, window, wet, drops, dripping, rainy, night, light, sad
+      -> 1920x1080  16.9 MB  (id 11722)
+
+================================================================
+downloaded : 61
+already had: 0
+failed     : 0
+================================================================
+All footage present. Build with:
+    python3 build_video.py video.json
+exit=0
+--- listing ---
+total 2180992
+drwxr-xr-x 2 runner runner      4096 Oct  2 18:25 .
+drwxr-xr-x 4 runner runner      4096 Oct  2 18:23 ..
+-rw-r--r-- 1 runner runner     17282 Oct  2 18:23 SHOPPING_LIST.md
+-rw-r--r-- 1 runner runner     12553 Oct  2 18:25 _diag.txt
+-rw-r--r-- 1 runner runner  20960935 Oct  2 18:23 scene-01.mp4
+-rw-r--r-- 1 runner runner  22202094 Oct  2 18:23 scene-02.mp4
+-rw-r--r-- 1 runner runner 144987067 Oct  2 18:23 scene-03.mp4
+mp4 count: 61
+2.1G	brand/footage
+/dev/root       145G   61G   84G  43% /
