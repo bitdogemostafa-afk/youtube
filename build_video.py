@@ -124,7 +124,11 @@ def footage_gate(scenes):
                   if not (sc.get("footage") and os.path.exists(sc["footage"]))]
     if len(no_footage) > STILL_SCENE_LIMIT:
         print("!! footage shopping list — download these clips into brand/footage/:")
+        # scenes that carry `visuals` are the intentional still scenes, so they
+        # are never part of the shopping list
         for sc in no_footage:
+            if sc.get("visuals"):
+                continue
             default = os.path.join("brand", "footage",
                                    f"scene-{sc.get('id', 0):02d}.mp4")
             print(f"   scene {sc.get('id')}: {sc.get('footage', default)}"
