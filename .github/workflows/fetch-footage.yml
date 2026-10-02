@@ -42,9 +42,25 @@ jobs:
       - name: download the 61 clips from Pexels
         env:
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
-        run: python3 download_footage.py
+        run: |
+          set +e
+          echo "=== direct API probe ===" > /tmp/diag.txt
+          code=$(curl -s -o /tmp/probe.json -w "%{http_code}" \
+            -H "Authorization: $PEXELS_API_KEY" \
+            "https://api.pexels.com/videos/search?query=rain&per_page=1")
+          echo "HTTP status: $code" >> /tmp/diag.txt
+          echo "body (first 400 chars):" >> /tmp/diag.txt
+          head -c 400 /tmp/probe.json >> /tmp/diag.txt
+          echo "" >> /tmp/diag.txt
+          echo "key length: ${#PEXELS_API_KEY}" >> /tmp/diag.txt
+          echo "=== downloader output ===" >> /tmp/diag.txt
+          python3 download_footage.py >> /tmp/diag.txt 2>&1
+          echo "downloader exit code: $?" >> /tmp/diag.txt
+          cp /tmp/diag.txt brand/footage/_diag.txt
+          echo "diagnostics written to brand/footage/_diag.txt"
 
       - name: trim each clip to the 10s the build consumes
+        if: ${{ hashFiles('brand/footage/scene-*.mp4') != '' }}
         run: |
           shopt -s nullglob
           for f in brand/footage/scene-*.mp4; do
@@ -59,15 +75,16 @@ jobs:
           done
 
       - name: commit the clips to footage-cache
+        if: ${{ always() }}
         run: |
           git config user.name  "footage-bot"
           git config user.email "footage-bot@users.noreply.github.com"
           git checkout -B footage-cache
           git add -f brand/footage/
           if git diff --cached --quiet; then
-            echo "no clips to commit"
+            echo "nothing to commit"
           else
-            git commit -m "footage: 61 Pexels clips trimmed to 10s @1080p"
+            git commit -m "footage: 61 Pexels clips trimmed to 10s @1080p (+diagnostics)"
             git push -f origin footage-cache
             echo "pushed $(git rev-parse --short HEAD) to footage-cache"
           fi
