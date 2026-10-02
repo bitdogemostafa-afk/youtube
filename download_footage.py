@@ -178,8 +178,37 @@ def download(url, dest, referer, tries=4):
     return 0
 
 
+_SUFFIXES = ("s", "y", "ing", "ed")
+
+
+def _word_in_tag(word, tag):
+    """Strict word/tag match.
+
+    The old rule (`word in tag or tag in word`) let a 3-letter tag like 'bee'
+    match the word 'beetroot' and hijack the scene. Now a tag must equal the
+    word, or be a natural inflection of it: a plural ('soil'/'soils'), an
+    adjective ('rain'/'rainy'), a gerund or participle ('fall'/'falling').
+    Anything shorter than 4 characters must match exactly, which is what keeps
+    'bee' out of 'beetroot'.
+    """
+    if not word or not tag:
+        return False
+    if word == tag:
+        return True
+    if word.endswith("s") and word[:-1] == tag:
+        return True
+    if tag.endswith("s") and tag[:-1] == word:
+        return True
+    short, long = (word, tag) if len(word) <= len(tag) else (tag, word)
+    if len(short) >= 4:
+        for suf in _SUFFIXES:
+            if long == short + suf:
+                return True
+    return False
+
+
 def relevance(video, query):
-    """How well a hit's tags cover the query words (0 = unrelated).
+    """How many query words the hit's tags cover (0 = unrelated).
 
     Pixabay ranks its own hits by relevance, but a wide-but-wrong clip (one
     generic 'bee' loop used to win every search) must never beat a narrow,
@@ -187,11 +216,20 @@ def relevance(video, query):
     only as a tie-break.
     """
     tags = set(t.strip().lower() for t in video["tags"].split(","))
-    words = set(w.lower() for w in query.split() if len(w) > 2)
+    words = [w.lower() for w in query.split() if len(w) > 2]
     if not words:
         return 0
-    hits = sum(1 for w in words if any(w in t or t in w for t in tags))
-    return hits
+    return sum(1 for w in words if any(_word_in_tag(w, t) for t in tags))
+
+
+def match_ratio(video, query):
+    """relevance normalised by query length - lets a short, exact query
+    ('beetroot' -> 1/1) beat a long, confused one ('fresh beetroot beets on
+    soil close up' -> 2/7)."""
+    words = [w for w in query.split() if len(w) > 2]
+    if not words:
+        return 0.0
+    return relevance(video, query) / float(len(words))
 
 
 def choose(results, query):
@@ -263,44 +301,52 @@ def main():
         if args.dry_run:
             continue
 
-        results, used = [], None
-        any_hits, any_query = [], None
+        # Try every query variant and keep whichever produced the best
+        # *ratio* of matched words: a short exact query ('beetroot' -> 1/1)
+        # must beat a long confused one ('fresh beetroot beets on soil
+        # close up' -> 2/7), which is what used to hand the scene to a bee.
+        best_pair, best_ratio, first_hits = None, 0.0, None
         for variant in query_variants(query):
             try:
-                results = search_fn(variant, key, args.per_page)
+                hits = search_fn(variant, key, args.per_page)
             except SystemExit:
                 raise
             except Exception as e:
                 print("      search error: %s" % e)
-                results = []
-            if results and not any_hits:
-                any_hits, any_query = results, variant
-            if results and relevance(choose(results, variant), variant) > 0:
-                used = variant
-                break
+                hits = []
+            if hits and not first_hits:
+                first_hits = (hits, variant)
+            if hits:
+                cand = choose(hits, variant)
+                ratio = match_ratio(cand, variant)
+                if ratio > best_ratio:
+                    best_pair, best_ratio = (hits, variant), ratio
+                if ratio == 1.0:
+                    break
             if variant != query:
                 print("      (shortened to %r)" % variant)
-            results = []
             time.sleep(0.7)
 
-        if not results:
+        if best_pair is None:
             # nothing matched a query word: keep the best raw hit rather than
             # dropping the scene, and say so loudly in the audit trail
-            if any_hits:
-                results, used = any_hits, any_query
-                print("      !! no on-topic hit, falling back to %r" % any_query)
+            if first_hits:
+                best_pair, best_ratio = first_hits, 0.0
+                print("      !! no on-topic hit, falling back to %r"
+                      % first_hits[1])
             else:
-                failed.append((sid, "no on-topic results for %r" % query))
-                print("      !! no on-topic results")
+                failed.append((sid, "no results for %r" % query))
+                print("      !! no results")
                 continue
 
+        results, used = best_pair
         best = choose(results, used)
         rel = relevance(best, used)
         if used != query:
             print("      matched via %r" % used)
-        print("      relevance %d/%d | tags: %s"
+        print("      relevance %d/%d (%.0f%%) | tags: %s"
               % (rel, len([w for w in used.split() if len(w) > 2]),
-                 best["tags"][:70]))
+                 best_ratio * 100, best["tags"][:70]))
 
         try:
             size = download(best["url"], dest, referer)
