@@ -141,7 +141,8 @@ def search_pixabay(query, key, per_page):
                     "w": chosen.get("width") or 0,
                     "h": chosen.get("height") or 0,
                     "id": h.get("id"),
-                    "tags": h.get("tags", "")[:70]})
+                    "dur": h.get("duration") or 0,
+                    "tags": h.get("tags", "")})
     return out
 
 
@@ -175,6 +176,28 @@ def download(url, dest, referer, tries=4):
                 raise
             time.sleep(3 * (attempt + 1))
     return 0
+
+
+def relevance(video, query):
+    """How well a hit's tags cover the query words (0 = unrelated).
+
+    Pixabay ranks its own hits by relevance, but a wide-but-wrong clip (one
+    generic 'bee' loop used to win every search) must never beat a narrow,
+    on-topic one, so the choice is made on tag overlap first and resolution
+    only as a tie-break.
+    """
+    tags = set(t.strip().lower() for t in video["tags"].split(","))
+    words = set(w.lower() for w in query.split() if len(w) > 2)
+    if not words:
+        return 0
+    hits = sum(1 for w in words if any(w in t or t in w for t in tags))
+    return hits
+
+
+def choose(results, query):
+    """Best hit: most tag overlap, then longest duration, then widest."""
+    return max(results,
+               key=lambda r: (relevance(r, query), r["dur"], r["w"]))
 
 
 def query_variants(query):
@@ -249,24 +272,26 @@ def main():
             except Exception as e:
                 print("      search error: %s" % e)
                 results = []
-            if results:
+            if results and relevance(choose(results, variant), variant) > 0:
                 used = variant
                 break
             if variant != query:
                 print("      (shortened to %r)" % variant)
+            results = []
             time.sleep(0.7)
 
         if not results:
-            failed.append((sid, "no results for %r" % query))
-            print("      !! no results")
+            failed.append((sid, "no on-topic results for %r" % query))
+            print("      !! no on-topic results")
             continue
 
-        # prefer the widest clip; ties go to the earlier (more relevant) hit
-        best = max(results, key=lambda r: r["w"])
+        best = choose(results, used)
+        rel = relevance(best, used)
         if used != query:
             print("      matched via %r" % used)
-        if best.get("tags"):
-            print("      tags: %s" % best["tags"])
+        print("      relevance %d/%d | tags: %s"
+              % (rel, len([w for w in used.split() if len(w) > 2]),
+                 best["tags"][:70]))
 
         try:
             size = download(best["url"], dest, referer)
