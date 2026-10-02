@@ -80,3 +80,5 @@ jobs:
           echo "- clips: $n / 61" >> $GITHUB_STEP_SUMMARY
           echo "- total size: $sz" >> $GITHUB_STEP_SUMMARY
           echo "- branch: \`footage-cache\`" >> $GITHUB_STEP_SUMMARY
+
+# trigger: re-run after PEXELS_API_KEY was added as a repository secret
